@@ -6,6 +6,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	
+	<f:metadata>
+		<f:viewAction action="#{imagensBean.listarImagens}" />
+	</f:metadata>
+	
 	<h:head>
 		<title>Prancha de Comunicação</title>
 	</h:head>
@@ -29,11 +33,18 @@
 		    <div id="div10" class="card card-10"  onclick="PF('galeriaModal10').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div11" class="card card-11"  onclick="PF('galeriaModal11').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div12" class="card card-12"  onclick="PF('galeriaModal12').show();" title="Clique aqui para inserir uma imagem"/>
-		   
-
 		</div>
+		
+		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="500"  >
+		    <p:dataTable value="#{imagensBean.imagens}" var="imagem" border="1" cellspacing="0" cellpadding="2">
+		        <p:column style="text-align: center;">
+		            <h3>#{imagem.descricao}</h3>
+		            <h:graphicImage library="img" name="#{imagem.nome}" cache="false"/>                    
+		        </p:column>                
+		    </p:dataTable>        
+		</p:dialog>
 
-		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="550"  >
+		<!--<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="550"  >
 			<div class="feliz-1">
 				<h3>Feliz</h3>
 				<h:graphicImage library="img" name="feliz.png" id="img1" onclick="loadImage1()"/>
@@ -68,12 +79,8 @@
 				<h3>Estudar</h3>
 				<h:graphicImage library="img" name="estudar.png" id="img7" onclick="loadImage7()"/>
 			</div>
-		</p:dialog>
-		
-		<!-- ************************************************************************************************************* -->
-		
-		
-		
+		</p:dialog> -->
+
 	</ui:define>
 	
 </ui:composition>
