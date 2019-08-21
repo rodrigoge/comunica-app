@@ -35,13 +35,15 @@
 		    <div id="div12" class="card card-12"  onclick="PF('galeriaModal12').show();" title="Clique aqui para inserir uma imagem"/>
 		</div>
 		
-		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="500"  >
-		    <p:dataTable value="#{imagensBean.imagens}" var="imagem" border="none" cellspacing="0" cellpadding="2">
-		        <p:column style="text-align: center;">
+		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" 
+			resizable="false" height="300" width="500" style="text-align: center;"  >
+		    <p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
+		    	border="none" cellspacing="0" cellpadding="2" resizableColumns="true" width="40">
+		        <p:column >
 		            <h3>#{imagem.descricao}</h3>
-		            <h:graphicImage library="img" name="#{imagem.nome}" cache="false"/>                    
+		            <h:graphicImage library="img" name="#{imagem.nome}" onclick="loadImage1()"/>                    
 		        </p:column>                
-		    </p:dataTable>        
+		    </p:dataGrid>        
 		</p:dialog>
 
 		<!--<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="550"  >
