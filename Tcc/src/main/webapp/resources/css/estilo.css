@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+/*importação de fonte */
+@font-face
+{
+	font-family: Anson;
+	src: url("../resources/fontes/Anson-Regular.otf");
+}
+
+/*aplicação em toda a página*/
+*
+{
+	margin: 0;
+	padding: 0;
+	font-family: Anson !important;
+	font-size: 20px;
+}	
+
+/* fundo da página */
+body
+{
+	background-image: url("../resources/img/fundo.jpeg");
+	background-size:auto;	
+}
+
+/* conteudo dentro da página */
+#conteudo 
+{
+	padding: 0px 8px;
+	font-size: 14px;
+}
+
+/* form de login e cadastro */
+form
+{
+	left: 23%;
+	position: relative;
+	width: 100px;
+}
+
+/* títulos das páginas */
+h2
+{
+	font-size: 28px;
+	color: #fff;
+	text-align: center;
+}
+
+/* bordas do form */
+.borda td, .borda tr
+{
+	background-image: linear-gradient(to right, #5d90c9, #8fabdd);
+	border: none !important; 
+}
+
+/* menu das páginas */
+#menu
+{
+	width: 100%;
+	left: 0;
+	text-align: center;
+}
+
+#btnCadastro { text-align: center; }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head>
+		<title>Prancha de Comunicação</title>
+	</h:head>
+	
+	<ui:define name="corpo">
+		
+		<h2>Prancha de Comunicação</h2>
+		
+		<div class="div-prancha">
+		    <div id="div1" class="card card-1"  onclick="PF('galeriaModal1').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div2" class="card card-2"  onclick="PF('galeriaModal2').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div3" class="card card-3"  onclick="PF('galeriaModal3').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div4" class="card card-4"  onclick="PF('galeriaModal4').show();" title="Clique aqui para inserir uma imagem"/>
+		    
+		    <div id="div5" class="card card-5"  onclick="PF('galeriaModal5').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div6" class="card card-6"  onclick="PF('galeriaModal6').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div7" class="card card-7"  onclick="PF('galeriaModal7').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div8" class="card card-8"  onclick="PF('galeriaModal8').show();" title="Clique aqui para inserir uma imagem"/>
+		    
+		    <div id="div9" class="card card-9"  onclick="PF('galeriaModal9').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div10" class="card card-10"  onclick="PF('galeriaModal10').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div11" class="card card-11"  onclick="PF('galeriaModal11').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div12" class="card card-12"  onclick="PF('galeriaModal12').show();" title="Clique aqui para inserir uma imagem"/>
+		   
+
+		</div>
+
+		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="550"  >
+			<div class="feliz-1">
+				<h3>Feliz</h3>
+				<h:graphicImage library="img" name="feliz.png" id="img1" onclick="loadImage1()"/>
+			</div> 
+			
+			<div class="triste-1">
+				<h3>Triste</h3>
+				<h:graphicImage library="img" name="triste.png" id="img2" onclick="loadImage2()"/>
+			</div>
+			
+			<div class="bravo-1">
+				<h3>Bravo</h3>
+				<h:graphicImage library="img" name="bravo.png" id="img3" onclick="loadImage3()"/>
+			</div>
+			
+			<div class="comer-1">
+				<h3>Comer</h3>
+				<h:graphicImage library="img" name="comer.png" id="img4" onclick="loadImage4()"/>
+			</div>
+			
+			<div class="brinquedos-1">
+				<h3>Brinquedos</h3>
+				<h:graphicImage library="img" name="brinquedos.png" id="img5" onclick="loadImage5()"/>
+			</div>
+			
+			<div class="escovar-1">
+				<h3>Escovar os Dentes</h3>
+				<h:graphicImage library="img" name="escovar.png" id="img6" onclick="loadImage6()"/>
+			</div>
+			
+			<div class="estudar-1">
+				<h3>Estudar</h3>
+				<h:graphicImage library="img" name="estudar.png" id="img7" onclick="loadImage7()"/>
+			</div>
+		</p:dialog>
+		
+		<!-- ************************************************************************************************************* -->
+		
+		
+		
+	</ui:define>
+	
+</ui:composition>

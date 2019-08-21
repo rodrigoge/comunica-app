@@ -1,0 +1,55 @@
+/* estilização da prancha inteira*/
+.div-prancha { margin-left: 5%; }
+
+/* estilização para todos os cartões */
+.card
+{
+	position: absolute;
+	border-width: 5px;
+	width:20%;
+	height:25%;
+	float: left;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+.card:hover 
+{ 
+	box-shadow: 1px 1px 1px 1px #000; 
+	transition: 0.6s; 
+}
+
+/********* posição de cada um dos cartões *************/
+.card-1 { margin-left:3%; }
+.card-2 { margin-left:24%; }
+.card-3 { margin-left:45%; }
+.card-4 { margin-left:66%; }
+.card-5 { margin-top:13.8%; margin-left:3% }
+.card-6 { margin-top:13.8%; margin-left:24%; } 
+.card-7 { margin-top:13.8%; margin-left:45%; } 
+.card-8 { margin-top:13.8%; margin-left:66%; } 
+.card-9 { margin-top:27.3%; margin-left:3%; }
+.card-10 { margin-top:27.3%; margin-left:24%; }
+.card-11 { margin-top:27.3%; margin-left:45%; }
+.card-12 { margin-top:27.3%; margin-left:66%; }
+/* -------------------------------------------------------------- */
+
+/* imagem dentro da modal */
+
+/* no vecteezy ajustar width e height 1018.9 */
+.feliz-1, .triste-1, .bravo-1, .comer-1, .brinquedos-1, .escovar-1, .estudar-1
+{
+	position: relative;
+	width: 150px;
+	height: 150px;
+	float: left;
+	text-align: center;
+}
+
+img
+{
+	width: 100px;
+	height: 100px;
+	cursor: pointer;
+	align-items: center;
+}

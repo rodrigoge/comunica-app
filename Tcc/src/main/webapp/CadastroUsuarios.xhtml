@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:metadata>			
+		<f:viewParam name="id" value="#{cadastroUsuarioBean.usuario}"/>	
+		<f:viewAction action="#{cadastroUsuarioBean.prepararCadastro}" />
+	</f:metadata>
+	
+	<h:head>
+		<title>Cadastro de Usuários</title>
+	</h:head>
+	
+	<ui:define name="corpo">
+	
+		<h2>Cadastro de Usuários</h2>
+		
+		<h:form>
+			<p:messages showDetail="false" showSummary="true" style="width: 660%;" />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome"/>
+				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
+				
+				<p:outputLabel value="Sobrenome" for="sobrenome"/>
+				<p:inputText id="sobrenome" value="#{cadastroUsuarioBean.usuario.sobrenome}" required="true" requiredMessage="Sobrenome obrigatório." style = "width: 500px;"/>
+				
+				<p:outputLabel value="Idade" for="idade"/>
+				<p:inputText id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" requiredMessage="Idade obrigatória." style = "width: 40px"/>
+				
+				<p:outputLabel value="E-mail" for="email"/>
+				<p:inputText id="email" value="#{cadastroUsuarioBean.usuario.email}" required="true" requiredMessage="E-mail obrigatório." style = "width: 350px"/>
+				
+				<p:outputLabel value="Senha" for="senha"/>
+				<p:inputText id="senha" type="password" value="#{cadastroUsuarioBean.usuario.senha}" required="true" requiredMessage="Senha obrigatória." style = "width: 150px"/>
+				
+				<p:outputLabel value="Tipo de Conta" required="true"/>
+					<p:selectOneMenu id="tipo" value="#{cadastroUsuarioBean.usuario.tipoConta}">
+						<f:selectItems value="#{cadastroUsuarioBean.tipoConta}" var="tipoConta" itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
+					</p:selectOneMenu>
+				
+				<p:outputLabel/>
+				
+				
+				<p:commandButton style="margin-left: 35%;" value="Salvar" action="#{cadastroUsuarioBean.salvar}" update="@form"/>
+				
+			</p:panelGrid>		
+		</h:form>
+	</ui:define>
+	
+</ui:composition>

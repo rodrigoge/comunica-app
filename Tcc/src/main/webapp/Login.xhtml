@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+	<f:metadata>			
+		<f:viewParam name="id" value="#{cadastroUsuarioBean.usuario}"/>	
+		<f:viewAction action="#{cadastroUsuarioBean.prepararCadastro}" />
+	</f:metadata>
+	
+	<ui:define name="corpo">
+		<h:head>
+			<title>Login no Sistema</title>
+		</h:head>
+		
+		<h2>Entre no sistema</h2>
+		
+		<h:form style="margin-top: 10%;">
+			<p:messages showDetail="false" showSummary="true" style="width: 660%;" />
+			
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" for="nome"/>
+				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
+				
+				<p:outputLabel value="Senha" for="senha"/>
+				<p:inputText id="senha" value="#{cadastroUsuarioBean.usuario.senha}" required="true" requiredMessage="Senha obrigatória." style = "width: 150px"/>	
+				<p:outputLabel/>
+				
+				<p:commandButton style="margin-left: 35%;" value="Entrar" action="#{cadastroUsuarioBean.salvar}" update="@form"/>
+			</p:panelGrid>
+		
+		</h:form>
+	</ui:define>
+
+</ui:composition>
