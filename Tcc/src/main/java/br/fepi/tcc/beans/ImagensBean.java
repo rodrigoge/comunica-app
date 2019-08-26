@@ -13,6 +13,7 @@ import br.fepi.tcc.model.Imagem;
 public class ImagensBean {
 	
 	private List<Imagem> imagens = new ArrayList<>();
+	private Imagem imagem;
 	 
 	public List<Imagem> listarImagens()
 	{
@@ -29,6 +30,14 @@ public class ImagensBean {
 
 	public List<Imagem> getImagens() {
 		return imagens;
+	}
+
+	public Imagem getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(Imagem imagem) {
+		this.imagem = imagem;
 	}
 
 }

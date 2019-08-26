@@ -7,6 +7,7 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 	<f:metadata>
+		<f:viewParam name="id" value="#{imagensBean.imagem}"/>	
 		<f:viewAction action="#{imagensBean.listarImagens}" />
 	</f:metadata>
 	
@@ -18,9 +19,10 @@
 		
 		<h2>Prancha de Comunicação</h2>
 		
-		<div class="div-prancha">
+		<div id="idprancha" class="div-prancha">
+		
 		    <div id="div1" class="card card-1"  onclick="PF('galeriaModal1').show();" title="Clique aqui para inserir uma imagem"/>
-		    <div id="div2" class="card card-2"  onclick="PF('galeriaModal2').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div2" class="card card-2"  onclick="PF('galeriaModal1').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div3" class="card card-3"  onclick="PF('galeriaModal3').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div4" class="card card-4"  onclick="PF('galeriaModal4').show();" title="Clique aqui para inserir uma imagem"/>
 		    
@@ -38,10 +40,11 @@
 		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" 
 			resizable="false" height="300" width="500" style="text-align: center;"  >
 		    <p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
-		    	border="none" cellspacing="0" cellpadding="2" resizableColumns="true" width="40">
+		    	 cellspacing="0" cellpadding="2" width="40">
 		        <p:column >
 		            <h3>#{imagem.descricao}</h3>
-		            <h:graphicImage library="img" name="#{imagem.nome}" onclick="loadImage1()"/>                    
+		            <h:graphicImage styleClass="imgClass" library="img" 
+		            	name="#{imagem.nome}" onclick="carregarFundo(#{imagem.id})"/>                    
 		        </p:column>                
 		    </p:dataGrid>        
 		</p:dialog>
