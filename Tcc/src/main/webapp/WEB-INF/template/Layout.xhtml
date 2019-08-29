@@ -7,24 +7,16 @@
 
 	<h:head>
 		<title>
-			<ui:insert name="titulo">Aplicação Web</ui:insert>
+			<ui:insert name="titulo">Comunica - Sistema Web de auxílio a pessoas com espectro autista</ui:insert>
 		</title>
 		
+		<link rel="icon" type="image/png" href="resources/img/icone/icone.png"/>
 		<h:outputStylesheet library="css" name="estilo.css" />
 		<h:outputStylesheet library="css" name="estilo-prancha.css" />
 		<h:outputScript library="js" name="script.js" />
 	</h:head>
 	
 	<h:body>
-		<h:form id="menu">
-			<p:menubar>
-				<p:menuitem label="Login" value="Login" action="/Login?faces-redirect=true" />
-				<p:menuitem label="Cadastro" value="Cadastro" action="/CadastroUsuarios?faces-redirect=true" />
-				<p:menuitem label="Prancha" value="Prancha" action="/Prancha?faces-redirect=true" />
-				<p:menuitem label="Rotina Diária" value="Rotina Diária" action="/Rotina?faces-redirect=true" />
-			</p:menubar>		
-		</h:form>
-		
 		<div id="conteudo">
 			<ui:insert name="corpo"/>
 		</div>

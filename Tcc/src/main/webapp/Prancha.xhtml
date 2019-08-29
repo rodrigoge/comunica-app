@@ -15,6 +15,15 @@
 		<title>Prancha de Comunicação</title>
 	</h:head>
 	
+		<h:form id="menu">
+			<p:menubar>
+				<p:menuitem label="Login" value="Login" action="/Login?faces-redirect=true" />
+				<p:menuitem label="Cadastro" value="Cadastro" action="/CadastroUsuarios?faces-redirect=true" />
+				<p:menuitem label="Prancha" value="Prancha" action="/Prancha?faces-redirect=true" />
+				<p:menuitem label="Rotina Diária" value="Rotina Diária" action="/Rotina?faces-redirect=true" />
+			</p:menubar>		
+		</h:form>
+	
 	<ui:define name="corpo">
 		
 		<h2>Prancha de Comunicação</h2>

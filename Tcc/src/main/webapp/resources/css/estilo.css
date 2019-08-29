@@ -19,8 +19,8 @@
 /* fundo da página */
 body
 {
-	background-image: url("../resources/img/fundo.jpeg");
-	background-size:auto;	
+	background-image: url("../resources/img/fundo-login/fundo.jpeg");
+	background-size: 100%;	
 }
 
 /* conteudo dentro da página */
@@ -47,11 +47,8 @@ h2
 }
 
 /* bordas do form */
-.borda td, .borda tr
-{
-	background-image: linear-gradient(to right, #5d90c9, #8fabdd);
-	border: none !important; 
-}
+
+.semBorda tr, .semBorda td { border: none !important; }
 
 /* menu das páginas */
 #menu

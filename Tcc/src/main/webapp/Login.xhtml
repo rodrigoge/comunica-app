@@ -16,20 +16,21 @@
 			<title>Login no Sistema</title>
 		</h:head>
 		
-		<h2>Entre no sistema</h2>
-		
-		<h:form style="margin-top: 10%;">
-			<p:messages showDetail="false" showSummary="true" style="width: 660%;" />
+		<h:form style="margin-top: 20%; margin-left: 3%;">
+			<p:growl showDetail="false" autoUpdate="true" showSummary="true" style="width: 660%;" />
 			
-			<p:panelGrid columns="2">
+			<p:panelGrid columns="2" styleClass="semBorda">
 				<p:outputLabel value="Nome" for="nome"/>
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Senha" for="senha"/>
 				<p:inputText id="senha" value="#{cadastroUsuarioBean.usuario.senha}" required="true" requiredMessage="Senha obrigatória." style = "width: 150px"/>	
-				<p:outputLabel/>
 				
-				<p:commandButton style="margin-left: 35%;" value="Entrar" action="#{cadastroUsuarioBean.salvar}" update="@form"/>
+				<p:commandButton value="Entrar" action="#{cadastroUsuarioBean.salvar}" 
+					update="@form" style="margin-left: 250%;"/>
+				
+				<p:link style="margin-left: 50%; text-decoration: none;" 
+					href="CadastroUsuarios.xhtml" value="Não tem cadastro? Clique aqui!"/>
 			</p:panelGrid>
 		
 		</h:form>
