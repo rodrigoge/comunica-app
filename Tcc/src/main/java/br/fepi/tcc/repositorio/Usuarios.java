@@ -13,6 +13,7 @@ public class Usuarios implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private EntityManager em;
+	String nomeUsuario;
 	
 	public Usuarios (EntityManager em)
 	{
@@ -32,16 +33,18 @@ public class Usuarios implements Serializable{
 	
 	public Usuario logados(String nomeUsuario, String senha) {
 		 
-	      try {
-	        Usuario usuario = (Usuario) em
-	         .createQuery("SELECT u from Usuario u where u.usuario = :name and u.senha = :senha")
-	         .setParameter("name", nomeUsuario)
-	         .setParameter("senha", senha).getSingleResult();
-	 
-	        return usuario;
-	      } catch (Exception e) {
-	           return null;
-	}
+		try 
+		{
+			Usuario usuario = (Usuario) em
+	        .createQuery("SELECT u from Usuario u where u.usuario = :name and u.senha = :senha")
+	        .setParameter("name", nomeUsuario)
+	        .setParameter("senha", senha).getSingleResult();
+			return usuario;
+	    } 
+		catch (Exception e) 
+		{
+			return null;
+	    }
 	}
 	
 	public void adicionar(Usuario usuario)

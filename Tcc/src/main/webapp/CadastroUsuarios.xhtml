@@ -29,27 +29,38 @@
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Usuário" for="usuario"/>
-				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" required="true" requiredMessage="Nome de usuário obrigatório." style = "width: 500px;"/>
-				
+				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" required="true" 
+					requiredMessage="Nome de usuário obrigatório." style="width: 500px;">
+					<p:keyFilter regEx="/[a-zA-Z0-9_.-]/i"/>  
+				</p:inputText>
+					
 				<p:outputLabel value="Idade" for="idade"/>
 				<p:inputText id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" requiredMessage="Idade obrigatória." style = "width: 40px"/>
 				
 				<p:outputLabel value="E-mail" for="email"/>
-				<p:inputText id="email" value="#{cadastroUsuarioBean.usuario.email}" required="true" requiredMessage="E-mail obrigatório." style = "width: 350px"/>
+				<p:inputText id="email" value="#{cadastroUsuarioBean.usuario.email}" required="true" 
+					requiredMessage="E-mail obrigatório." style = "width: 350px">
+					<p:keyFilter regEx="/[a-zA-Z0-9_.-@]/i"/>  
+				</p:inputText>
 				
 				<p:outputLabel value="Senha" for="senha"/>
-				<p:inputText id="senha" type="password" value="#{cadastroUsuarioBean.usuario.senha}" required="true" requiredMessage="Senha obrigatória." style = "width: 150px"/>
+				<p:password id="senha" value="#{cadastroUsuarioBean.usuario.senha}" 
+					promptLabel="Por favor, digite sua senha." weakLabel="Senha fraca"
+                    goodLabel="Senha média" strongLabel="Senha forte"
+					feedback="true" required="true" requiredMessage="Senha obrigatória." style = "width: 150px">
+					<p:keyFilter regEx="/[a-zA-Z0-9_.-@*()]/i"/> 
+				</p:password>
 				
 				<p:outputLabel value="Tipo de Conta" required="true"/>
 					<p:selectOneMenu id="tipo" value="#{cadastroUsuarioBean.usuario.tipoConta}">
 						<f:selectItems value="#{cadastroUsuarioBean.tipoConta}" var="tipoConta" itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
 					</p:selectOneMenu>
-				
-				<p:outputLabel/>
-				
-				
-				<p:commandButton style="margin-left: 35%;" value="Salvar" 
+
+				<p:commandButton style="margin-left: 220%;" value="Salvar" 
 					action="#{cadastroUsuarioBean.salvar}" update="@form"/>
+				
+				<p:commandButton style="margin-left: 40%;" value="Voltar" 
+					onclick="voltar()"/>
 				
 			</p:panelGrid>		
 		</h:form>

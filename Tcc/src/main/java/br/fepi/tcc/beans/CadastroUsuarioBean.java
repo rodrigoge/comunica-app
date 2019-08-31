@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -20,7 +20,7 @@ import br.fepi.tcc.repositorio.Usuarios;
 import br.fepi.tcc.util.DataSource;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class CadastroUsuarioBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -38,23 +38,6 @@ public class CadastroUsuarioBean implements Serializable {
 		}
 	}
 	
-	public void logar() throws IOException
-	{
-		EntityManager em = DataSource.getEntityManager();
-		EntityTransaction et = em.getTransaction();
-		FacesContext faces = FacesContext.getCurrentInstance();
-		
-		if(usuario == usuariosLogados.logados(usuario.getUsuario(), usuario.getSenha()))
-		{
-			FacesContext.getCurrentInstance().getExternalContext().redirect("Prancha.xhtml"); 
-			et.commit();
-		}
-		else
-		{
-			faces.addMessage(null, 
-					new FacesMessage("Usuário não existe!"));
-		}
-	}
 	
 	public void salvar() throws IOException
 	{
@@ -69,7 +52,7 @@ public class CadastroUsuarioBean implements Serializable {
 			cadastro.salvar(usuario);
 			this.usuario = new Usuario();
 			faces.addMessage(null, new FacesMessage("Salvo com sucesso."));
-			FacesContext.getCurrentInstance().getExternalContext().redirect("Login.xhtml"); 
+			
 			et.commit();
 			
 		} 
