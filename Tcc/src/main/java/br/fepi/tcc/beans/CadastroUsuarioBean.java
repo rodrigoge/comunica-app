@@ -1,5 +1,6 @@
 package br.fepi.tcc.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,8 @@ public class CadastroUsuarioBean implements Serializable {
 	private Usuario usuario;
 	private List<Usuario> todosUsuarios = new ArrayList<>();
 	
+	private Usuarios usuariosLogados;
+
 	public void prepararCadastro()
 	{
 		if(this.usuario == null)
@@ -35,7 +38,25 @@ public class CadastroUsuarioBean implements Serializable {
 		}
 	}
 	
-	public void salvar()
+	public void logar() throws IOException
+	{
+		EntityManager em = DataSource.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		FacesContext faces = FacesContext.getCurrentInstance();
+		
+		if(usuario == usuariosLogados.logados(usuario.getUsuario(), usuario.getSenha()))
+		{
+			FacesContext.getCurrentInstance().getExternalContext().redirect("Prancha.xhtml"); 
+			et.commit();
+		}
+		else
+		{
+			faces.addMessage(null, 
+					new FacesMessage("Usuário não existe!"));
+		}
+	}
+	
+	public void salvar() throws IOException
 	{
 		EntityManager em = DataSource.getEntityManager();
 		EntityTransaction et = em.getTransaction();
@@ -48,6 +69,7 @@ public class CadastroUsuarioBean implements Serializable {
 			cadastro.salvar(usuario);
 			this.usuario = new Usuario();
 			faces.addMessage(null, new FacesMessage("Salvo com sucesso."));
+			FacesContext.getCurrentInstance().getExternalContext().redirect("Login.xhtml"); 
 			et.commit();
 			
 		} 
@@ -80,6 +102,14 @@ public class CadastroUsuarioBean implements Serializable {
 		this.todosUsuarios = todosUsuarios;
 	}
 	
+	public Usuarios getUsuariosLogados() {
+		return usuariosLogados;
+	}
+
+	public void setUsuariosLogados(Usuarios usuariosLogados) {
+		this.usuariosLogados = usuariosLogados;
+	}
+
 	public tipoConta[] gettipoConta()
 	{
 		return tipoConta.values();

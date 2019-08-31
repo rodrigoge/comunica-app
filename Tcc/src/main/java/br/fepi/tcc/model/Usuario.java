@@ -23,8 +23,8 @@ public class Usuario implements Serializable {
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
 	
-	@Column(name = "sobrenome", length = 60, nullable = false)
-	private String sobrenome;
+	@Column(name = "usuario", length = 60, nullable = false)
+	private String usuario;
 	
 	@Column(name = "idade", length = 60, nullable = false)
 	private int idade;
@@ -54,12 +54,12 @@ public class Usuario implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getSobrenome() {
-		return sobrenome;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
 	public int getIdade() {

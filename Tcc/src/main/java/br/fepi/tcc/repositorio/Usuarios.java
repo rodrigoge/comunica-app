@@ -30,6 +30,20 @@ public class Usuarios implements Serializable{
 		return query.getResultList();
 	}
 	
+	public Usuario logados(String nomeUsuario, String senha) {
+		 
+	      try {
+	        Usuario usuario = (Usuario) em
+	         .createQuery("SELECT u from Usuario u where u.usuario = :name and u.senha = :senha")
+	         .setParameter("name", nomeUsuario)
+	         .setParameter("senha", senha).getSingleResult();
+	 
+	        return usuario;
+	      } catch (Exception e) {
+	           return null;
+	}
+	}
+	
 	public void adicionar(Usuario usuario)
 	{
 		this.em.persist(usuario);

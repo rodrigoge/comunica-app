@@ -13,23 +13,27 @@
 	
 	<ui:define name="corpo">
 		<h:head>
-			<title>Login no Sistema</title>
+
 		</h:head>
 		
-		<h:form style="margin-top: 20%; margin-left: 3%;">
+		<h:form style="margin-top: 15%; margin-left: 5%; width: 300px;">
 			<p:growl showDetail="false" autoUpdate="true" showSummary="true" style="width: 660%;" />
 			
-			<p:panelGrid columns="2" styleClass="semBorda">
-				<p:outputLabel value="Nome" for="nome"/>
-				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
+			<p:panelGrid columns="1" styleClass="semBorda">
+				<h2 style="margin-left: 30%;">Olá, entre no sistema.</h2>
+				
+				<p:outputLabel value="Usuário" for="usuario"/>
+				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" 
+					required="true" requiredMessage="Usuário obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Senha" for="senha"/>
-				<p:inputText id="senha" value="#{cadastroUsuarioBean.usuario.senha}" required="true" requiredMessage="Senha obrigatória." style = "width: 150px"/>	
+				<p:inputText id="senha" type="password" value="#{cadastroUsuarioBean.usuario.senha}" 
+					required="true" requiredMessage="Senha obrigatória." style="width: 500px;"/>	
 				
-				<p:commandButton value="Entrar" action="#{cadastroUsuarioBean.salvar}" 
-					update="@form" style="margin-left: 250%;"/>
+				<p:commandButton value="Enviar" action="#{cadastroUsuarioBean.logar}" 
+					ajax="false" style="margin-left:42%;"/>
 				
-				<p:link style="margin-left: 50%; text-decoration: none;" 
+				<p:link style="margin-left: 30%; text-decoration: none;" 
 					href="CadastroUsuarios.xhtml" value="Não tem cadastro? Clique aqui!"/>
 			</p:panelGrid>
 		

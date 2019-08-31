@@ -23,4 +23,9 @@
 		<param-value>auto</param-value>
 	</context-param>
 	
+	<welcome-file-list>
+        <welcome-file>/Login.xhtml</welcome-file>
+    </welcome-file-list>
+
+	
 </web-app>

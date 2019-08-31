@@ -24,6 +24,8 @@ public class UsuariosBeans implements Serializable {
 	private List<Usuario> usuarios;
 	private Usuario usuarioSelecionado;
 	
+	
+	
 	public void consultar()
 	{
 		EntityManager em = DataSource.getEntityManager();
@@ -37,7 +39,6 @@ public class UsuariosBeans implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		EntityManager em = DataSource.getEntityManager();
 		EntityTransaction et = em.getTransaction();
-		
 		CadastroUsuarios cadastro = new CadastroUsuarios(new Usuarios(em));
 		
 		try 
@@ -73,6 +74,12 @@ public class UsuariosBeans implements Serializable {
 	public void setUsuarioSelecionado(Usuario usuarioSelecionado) {
 		this.usuarioSelecionado = usuarioSelecionado;
 	}
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+	
+	
 	
 	
 

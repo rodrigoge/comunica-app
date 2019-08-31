@@ -17,16 +17,19 @@
 		
 	<ui:define name="corpo">
 		
-		<h:form style="margin-top: 10%;">
+		<h:form style="margin-top: 12%; margin-left: 2%;">
 			
 			<p:growl showDetail="false" showSummary="true" style="width: 660%;" />
 			
 			<p:panelGrid columns="2" styleClass="semBorda" >
+				<p:outputLabel/>
+				<h2 style="margin-left: 14%;">Por favor, digite seus dados.</h2>
+				
 				<p:outputLabel value="Nome" for="nome"/>
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
 				
-				<p:outputLabel value="Sobrenome" for="sobrenome"/>
-				<p:inputText id="sobrenome" value="#{cadastroUsuarioBean.usuario.sobrenome}" required="true" requiredMessage="Sobrenome obrigatório." style = "width: 500px;"/>
+				<p:outputLabel value="Usuário" for="usuario"/>
+				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" required="true" requiredMessage="Nome de usuário obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Idade" for="idade"/>
 				<p:inputText id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" requiredMessage="Idade obrigatória." style = "width: 40px"/>
@@ -45,7 +48,8 @@
 				<p:outputLabel/>
 				
 				
-				<p:commandButton style="margin-left: 35%;" value="Salvar" action="#{cadastroUsuarioBean.salvar}" update="@form"/>
+				<p:commandButton style="margin-left: 35%;" value="Salvar" 
+					action="#{cadastroUsuarioBean.salvar}" update="@form"/>
 				
 			</p:panelGrid>		
 		</h:form>
