@@ -7,8 +7,8 @@
 	xmlns:p="http://primefaces.org/ui">
 	
 	<f:metadata>			
-		<f:viewParam name="id" value="#{cadastroUsuarioBean.usuario}"/>	
-		<f:viewAction action="#{cadastroUsuarioBean.prepararCadastro}" />
+		<f:viewParam name="id" value="#{loginBean.usuario}"/>	
+		<f:viewAction action="#{loginBean.prepararCadastro}" />
 	</f:metadata>
 	
 	<ui:define name="corpo">
@@ -17,20 +17,20 @@
 		</h:head>
 		
 		<h:form style="margin-top: 15%; margin-left: 5%; width: 300px;">
-			<p:growl showDetail="false" autoUpdate="true" showSummary="true" style="width: 660%;" />
+			<p:growl showDetail="false" autoUpdate="true" showSummary="true"/>
 			
 			<p:panelGrid columns="1" styleClass="semBorda">
 				<h2 style="margin-left: 30%;">Olá, entre no sistema.</h2>
 				
 				<p:outputLabel value="Usuário" for="usuario"/>
-				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" 
+				<p:inputText id="usuario" value="#{loginBean.usuario.usuario}" 
 					required="true" requiredMessage="Usuário obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Senha" for="senha"/>
-				<p:inputText id="senha" type="password" value="#{cadastroUsuarioBean.usuario.senha}" 
+				<p:inputText id="senha" type="password" value="#{loginBean.usuario.senha}" 
 					required="true" requiredMessage="Senha obrigatória." style="width: 500px;"/>	
 				
-				<p:commandButton value="Enviar" action="#{cadastroUsuarioBean.logar}" 
+				<p:commandButton value="Entrar" action="#{loginBean.entrar}" 
 					ajax="false" style="margin-left:42%;"/>
 				
 				<p:link style="margin-left: 30%; text-decoration: none;" 

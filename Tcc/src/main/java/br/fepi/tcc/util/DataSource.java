@@ -10,8 +10,8 @@ private static EntityManagerFactory factory ;
 	
 	static { factory = Persistence.createEntityManagerFactory("TCCPU"); }
 	
-	public static EntityManager getEntityManager() {
+	public static EntityManager getEntityManager() 
+	{
 		return factory.createEntityManager();
-		
 	}
 }

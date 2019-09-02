@@ -27,8 +27,6 @@ public class CadastroUsuarioBean implements Serializable {
 
 	private Usuario usuario;
 	private List<Usuario> todosUsuarios = new ArrayList<>();
-	
-	private Usuarios usuariosLogados;
 
 	public void prepararCadastro()
 	{
@@ -37,7 +35,6 @@ public class CadastroUsuarioBean implements Serializable {
 			this.usuario = new Usuario();
 		}
 	}
-	
 	
 	public void salvar() throws IOException
 	{
@@ -52,7 +49,6 @@ public class CadastroUsuarioBean implements Serializable {
 			cadastro.salvar(usuario);
 			this.usuario = new Usuario();
 			faces.addMessage(null, new FacesMessage("Salvo com sucesso."));
-			
 			et.commit();
 			
 		} 
@@ -68,7 +64,7 @@ public class CadastroUsuarioBean implements Serializable {
 			em.close();
 		}
 	}
-
+  
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -83,14 +79,6 @@ public class CadastroUsuarioBean implements Serializable {
 
 	public void setTodosUsuarios(List<Usuario> todosUsuarios) {
 		this.todosUsuarios = todosUsuarios;
-	}
-	
-	public Usuarios getUsuariosLogados() {
-		return usuariosLogados;
-	}
-
-	public void setUsuariosLogados(Usuarios usuariosLogados) {
-		this.usuariosLogados = usuariosLogados;
 	}
 
 	public tipoConta[] gettipoConta()

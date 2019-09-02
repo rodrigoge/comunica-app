@@ -17,9 +17,9 @@
 		
 	<ui:define name="corpo">
 		
-		<h:form style="margin-top: 12%; margin-left: 2%;">
+		<h:form style="margin-top: 12%; margin-left: 4%;">
 			
-			<p:growl showDetail="false" showSummary="true" style="width: 660%;" />
+			<p:growl showDetail="false" autoUpdate="true" showSummary="true"/>
 			
 			<p:panelGrid columns="2" styleClass="semBorda" >
 				<p:outputLabel/>
@@ -30,16 +30,21 @@
 				
 				<p:outputLabel value="Usuário" for="usuario"/>
 				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" required="true" 
-					requiredMessage="Nome de usuário obrigatório." style="width: 500px;">
+					requiredMessage="Nome de usuário obrigatório." style="width: 200px;">
 					<p:keyFilter regEx="/[a-zA-Z0-9_.-]/i"/>  
+					<f:validateLength minimum="5" />
+					<p:ajax event="keyup" />
 				</p:inputText>
 					
 				<p:outputLabel value="Idade" for="idade"/>
-				<p:inputText id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" requiredMessage="Idade obrigatória." style = "width: 40px"/>
+				<p:inputMask id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" 
+					requiredMessage="Idade obrigatória." mask="99" style="width: 40px">
+					<p:keyFilter regEx="/[0-9]/i"/>
+				</p:inputMask>
 				
 				<p:outputLabel value="E-mail" for="email"/>
 				<p:inputText id="email" value="#{cadastroUsuarioBean.usuario.email}" required="true" 
-					requiredMessage="E-mail obrigatório." style = "width: 350px">
+					requiredMessage="E-mail obrigatório." style="width: 350px">
 					<p:keyFilter regEx="/[a-zA-Z0-9_.-@]/i"/>  
 				</p:inputText>
 				
@@ -47,13 +52,15 @@
 				<p:password id="senha" value="#{cadastroUsuarioBean.usuario.senha}" 
 					promptLabel="Por favor, digite sua senha." weakLabel="Senha fraca"
                     goodLabel="Senha média" strongLabel="Senha forte"
-					feedback="true" required="true" requiredMessage="Senha obrigatória." style = "width: 150px">
+					feedback="true" required="true" requiredMessage="Senha obrigatória." style="width: 150px">
 					<p:keyFilter regEx="/[a-zA-Z0-9_.-@*()]/i"/> 
 				</p:password>
 				
-				<p:outputLabel value="Tipo de Conta" required="true"/>
+				<p:outputLabel value="Tipo de Conta" required="true" requiredMessage="Tipo obrigatório."/>
 					<p:selectOneMenu id="tipo" value="#{cadastroUsuarioBean.usuario.tipoConta}">
-						<f:selectItems value="#{cadastroUsuarioBean.tipoConta}" var="tipoConta" itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
+						<f:selectItem itemLabel="Selecione o tipo" itemValue="" />
+						<f:selectItems value="#{cadastroUsuarioBean.tipoConta}" var="tipoConta" 
+							itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
 					</p:selectOneMenu>
 
 				<p:commandButton style="margin-left: 220%;" value="Salvar" 

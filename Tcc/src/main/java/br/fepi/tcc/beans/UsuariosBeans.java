@@ -24,8 +24,6 @@ public class UsuariosBeans implements Serializable {
 	private List<Usuario> usuarios;
 	private Usuario usuarioSelecionado;
 	
-	
-	
 	public void consultar()
 	{
 		EntityManager em = DataSource.getEntityManager();

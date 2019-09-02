@@ -4,16 +4,36 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import br.fepi.tcc.model.Usuario;
+
 
 public class Usuarios implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private EntityManager em;
-	String nomeUsuario;
+	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("usuarios");
+	private EntityManager em = factory.createEntityManager();
+	
+	public Usuario getUsuario(String nomeUser, String senha)
+	{
+		try
+		{
+			Usuario usuario = (Usuario) em.createQuery(
+					"SELECT u from usuario u where u.nomeUser = :usuario and u.senha = :senha")
+					.setParameter("usuario", nomeUser)
+					.setParameter("senha", senha).getResultList();
+			return usuario;
+		}
+		catch(NoResultException e)
+		{
+			return null;
+		}
+	}
 	
 	public Usuarios (EntityManager em)
 	{
@@ -30,23 +50,7 @@ public class Usuarios implements Serializable{
 		TypedQuery<Usuario> query = em.createQuery("from Usuario u order by u.id", Usuario.class);
 		return query.getResultList();
 	}
-	
-	public Usuario logados(String nomeUsuario, String senha) {
-		 
-		try 
-		{
-			Usuario usuario = (Usuario) em
-	        .createQuery("SELECT u from Usuario u where u.usuario = :name and u.senha = :senha")
-	        .setParameter("name", nomeUsuario)
-	        .setParameter("senha", senha).getSingleResult();
-			return usuario;
-	    } 
-		catch (Exception e) 
-		{
-			return null;
-	    }
-	}
-	
+
 	public void adicionar(Usuario usuario)
 	{
 		this.em.persist(usuario);
