@@ -40,7 +40,6 @@ public class LoginBean implements Serializable {
 		lista_usuarios = usuarios.buscarUsuario(usuario.getNomeUsuario(), usuario.getSenha());
 		if(lista_usuarios.isEmpty())
 		{
-			//usuario = new Usuario();
 			FacesContext.getCurrentInstance().addMessage( 
 					null, new FacesMessage(FacesMessage.SEVERITY_ERROR, 
 							"Usuário ou senha estão incorretos!", "Erro ao logar!"));
@@ -66,7 +65,6 @@ public class LoginBean implements Serializable {
 	public Usuario getUsuario() {
 		return usuario;
 	}
-
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
