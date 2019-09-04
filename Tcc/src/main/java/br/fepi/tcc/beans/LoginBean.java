@@ -1,16 +1,15 @@
 package br.fepi.tcc.beans;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-
 import br.fepi.tcc.model.Usuario;
-import br.fepi.tcc.negocio.CadastroUsuarios;
 import br.fepi.tcc.repositorio.Usuarios;
 import br.fepi.tcc.util.DataSource;
 
@@ -22,10 +21,11 @@ public class LoginBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Usuario usuario = new Usuario();
+	private List<Usuario> lista_usuarios;
+	
 	EntityManager em = DataSource.getEntityManager();
 	private Usuarios usuarios = new Usuarios(em);
-	
-			
+
 	public void prepararCadastro()
 	{
 		if(this.usuario == null)
@@ -33,53 +33,67 @@ public class LoginBean implements Serializable {
 			this.usuario = new Usuario();
 		}
 	}
-	public String entrar()
+	
+	public String entrar() throws IOException
 	{
-		usuario = usuarios.getUsuario(usuario.getUsuario(), usuario.getSenha());
-		if(usuario == null)
+		
+		lista_usuarios = usuarios.buscarUsuario(usuario.getNomeUsuario(), usuario.getSenha());
+		if(lista_usuarios.isEmpty())
 		{
-			usuario = new Usuario();
+			//usuario = new Usuario();
 			FacesContext.getCurrentInstance().addMessage( 
 					null, new FacesMessage(FacesMessage.SEVERITY_ERROR, 
-							"User not found!", " Login Error!"));
+							"Usuário ou senha estão incorretos!", "Erro ao logar!"));
 
 			return null;
 		}
 		else
 		{
-			return "Prancha.xhtml";
+			return "/Menu.faces?faces-redirect=true";
 		}
 	}
 	
-	
-/*
-    public String logar()
-
-    {
-        if(usuario.getUsuario().equals("admin") && usuario.getSenha().equals("admin"))
-        {
-            return "Prancha.xhtml";
-        }
-        FacesContext ctx = FacesContext.getCurrentInstance();
-        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário inválido", "Usuário inválido");
-        ctx.addMessage(null, msg);
-        return "";              
+	public String sair() 
+	{
+		return "/Login.faces?faces-redirect=true";
     }
-*/
 	
+	public String cancelar() 
+	{
+		return "/Menu.faces?faces-redirect=true";
+    }
 
 	public Usuario getUsuario() {
 		return usuario;
 	}
 
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public List<Usuario> getLista_usuarios() {
+		return lista_usuarios;
+	}
+
+	public void setLista_usuarios(List<Usuario> lista_usuarios) {
+		this.lista_usuarios = lista_usuarios;
+	}
+
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
 	public Usuarios getUsuarios() {
 		return usuarios;
 	}
+
 	public void setUsuarios(Usuarios usuarios) {
 		this.usuarios = usuarios;
-	}
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 	
 	

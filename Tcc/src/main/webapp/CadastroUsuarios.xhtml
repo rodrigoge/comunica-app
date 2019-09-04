@@ -11,11 +11,10 @@
 		<f:viewAction action="#{cadastroUsuarioBean.prepararCadastro}" />
 	</f:metadata>
 	
-	<h:head>
-		<title>Cadastro de Usuários</title>
-	</h:head>
-		
 	<ui:define name="corpo">
+		<h:head>
+			<h:outputStylesheet library="css" name="estilo-inicial.css" />
+		</h:head>
 		
 		<h:form style="margin-top: 12%; margin-left: 4%;">
 			
@@ -29,7 +28,7 @@
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Usuário" for="usuario"/>
-				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.usuario}" required="true" 
+				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.nomeUsuario}" required="true" 
 					requiredMessage="Nome de usuário obrigatório." style="width: 200px;">
 					<p:keyFilter regEx="/[a-zA-Z0-9_.-]/i"/>  
 					<f:validateLength minimum="5" />
@@ -53,7 +52,7 @@
 					promptLabel="Por favor, digite sua senha." weakLabel="Senha fraca"
                     goodLabel="Senha média" strongLabel="Senha forte"
 					feedback="true" required="true" requiredMessage="Senha obrigatória." style="width: 150px">
-					<p:keyFilter regEx="/[a-zA-Z0-9_.-@*()]/i"/> 
+					<p:keyFilter regEx="/[a-zA-Z0-9_.-@*()%$!]/i"/> 
 				</p:password>
 				
 				<p:outputLabel value="Tipo de Conta" required="true" requiredMessage="Tipo obrigatório."/>

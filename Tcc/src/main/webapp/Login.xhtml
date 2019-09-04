@@ -13,7 +13,7 @@
 	
 	<ui:define name="corpo">
 		<h:head>
-
+			<h:outputStylesheet library="css" name="estilo-inicial.css"/>
 		</h:head>
 		
 		<h:form style="margin-top: 15%; margin-left: 5%; width: 300px;">
@@ -23,7 +23,7 @@
 				<h2 style="margin-left: 30%;">Olá, entre no sistema.</h2>
 				
 				<p:outputLabel value="Usuário" for="usuario"/>
-				<p:inputText id="usuario" value="#{loginBean.usuario.usuario}" 
+				<p:inputText id="usuario" value="#{loginBean.usuario.nomeUsuario}" 
 					required="true" requiredMessage="Usuário obrigatório." style = "width: 500px;"/>
 				
 				<p:outputLabel value="Senha" for="senha"/>

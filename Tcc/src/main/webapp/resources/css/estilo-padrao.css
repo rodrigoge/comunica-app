@@ -46,6 +46,12 @@
 	text-align: center;
 }
 
+body
+{
+	background-image: url("../resources/img/fundo-login/fundo-padrao.jpeg");
+	background-size: 100%;	
+}
+
 img
 {
 	width: 100px;
@@ -53,3 +59,63 @@ img
 	cursor: pointer;
 	align-items: center;
 }
+
+h2
+{
+	font-size: 28px;
+	color: #fff;
+
+}
+
+/*importação de fonte */
+@font-face
+{
+	font-family: Anson;
+	src: url("../resources/fontes/Anson-Regular.otf");
+}
+
+/*aplicação em toda a página*/
+*
+{
+	margin: 0;
+	padding: 0;
+	font-family: Anson !important;
+	font-size: 20px;
+}	
+
+/* conteudo dentro da página */
+#conteudo 
+{
+	padding: 0px 8px;
+	font-size: 14px;
+}
+
+/* form de login e cadastro */
+form
+{
+	left: 23%;
+	position: relative;
+	width: 100px;
+}
+
+/* títulos das páginas */
+h2
+{
+	font-size: 28px;
+	color: #fff;
+	text-align: center !important;
+}
+
+/* bordas do form */
+
+.semBorda tr, .semBorda td { border: none !important; }
+
+/* menu das páginas */
+#menu
+{
+	width: 100%;
+	left: 0;
+	text-align: center;
+}
+
+#btnCadastro { text-align: center; }

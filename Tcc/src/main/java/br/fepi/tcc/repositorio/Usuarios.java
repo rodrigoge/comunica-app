@@ -4,35 +4,26 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import br.fepi.tcc.model.Usuario;
+import br.fepi.tcc.util.DataSource;
 
 
 public class Usuarios implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("usuarios");
-	private EntityManager em = factory.createEntityManager();
+	private EntityManager em = DataSource.getEntityManager();
 	
-	public Usuario getUsuario(String nomeUser, String senha)
+	public List<Usuario> buscarUsuario(String nomeUsuario, String senha)
 	{
-		try
-		{
-			Usuario usuario = (Usuario) em.createQuery(
-					"SELECT u from usuario u where u.nomeUser = :usuario and u.senha = :senha")
-					.setParameter("usuario", nomeUser)
-					.setParameter("senha", senha).getResultList();
-			return usuario;
-		}
-		catch(NoResultException e)
-		{
-			return null;
-		}
+		TypedQuery<Usuario> query = em.createQuery(
+		"SELECT u FROM Usuario u WHERE "
+		+ "u.nomeUsuario = :nomeUsuario and u.senha = :senha", Usuario.class)
+		.setParameter("nomeUsuario", nomeUsuario)
+		.setParameter("senha", senha);
+		return query.getResultList();
 	}
 	
 	public Usuarios (EntityManager em)
@@ -65,5 +56,4 @@ public class Usuarios implements Serializable{
 	{
 		this.em.remove(usuario);
 	}
-
 }

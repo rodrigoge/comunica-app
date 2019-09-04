@@ -11,10 +11,6 @@
 		<f:viewAction action="#{imagensBean.listarImagens}" />
 	</f:metadata>
 	
-	<h:head>
-		
-	</h:head>
-	
 		<h:form id="menu">
 			<p:menubar>
 				<p:menuitem label="Login" value="Login" action="/Login?faces-redirect=true" />
@@ -25,6 +21,9 @@
 		</h:form>
 	
 	<ui:define name="corpo">
+		<h:head>
+			<h:outputStylesheet library="css" name="estilo-padrao.css" />
+		</h:head>
 		
 		<h2>Prancha de Comunicação</h2>
 		
@@ -57,44 +56,6 @@
 		        </p:column>                
 		    </p:dataGrid>        
 		</p:dialog>
-
-		<!--<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" resizable="false" height="300" width="550"  >
-			<div class="feliz-1">
-				<h3>Feliz</h3>
-				<h:graphicImage library="img" name="feliz.png" id="img1" onclick="loadImage1()"/>
-			</div> 
-			
-			<div class="triste-1">
-				<h3>Triste</h3>
-				<h:graphicImage library="img" name="triste.png" id="img2" onclick="loadImage2()"/>
-			</div>
-			
-			<div class="bravo-1">
-				<h3>Bravo</h3>
-				<h:graphicImage library="img" name="bravo.png" id="img3" onclick="loadImage3()"/>
-			</div>
-			
-			<div class="comer-1">
-				<h3>Comer</h3>
-				<h:graphicImage library="img" name="comer.png" id="img4" onclick="loadImage4()"/>
-			</div>
-			
-			<div class="brinquedos-1">
-				<h3>Brinquedos</h3>
-				<h:graphicImage library="img" name="brinquedos.png" id="img5" onclick="loadImage5()"/>
-			</div>
-			
-			<div class="escovar-1">
-				<h3>Escovar os Dentes</h3>
-				<h:graphicImage library="img" name="escovar.png" id="img6" onclick="loadImage6()"/>
-			</div>
-			
-			<div class="estudar-1">
-				<h3>Estudar</h3>
-				<h:graphicImage library="img" name="estudar.png" id="img7" onclick="loadImage7()"/>
-			</div>
-		</p:dialog> -->
-
 	</ui:define>
 	
 </ui:composition>
