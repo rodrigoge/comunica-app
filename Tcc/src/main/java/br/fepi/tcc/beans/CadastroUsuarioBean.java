@@ -27,6 +27,9 @@ public class CadastroUsuarioBean implements Serializable {
 
 	private Usuario usuario;
 	private List<Usuario> todosUsuarios = new ArrayList<>();
+	private List<Usuario> usersLogados;
+	EntityManager em = DataSource.getEntityManager();
+	private Usuarios usuarios = new Usuarios(em);
 
 	public void prepararCadastro()
 	{
@@ -41,28 +44,40 @@ public class CadastroUsuarioBean implements Serializable {
 		EntityManager em = DataSource.getEntityManager();
 		EntityTransaction et = em.getTransaction();
 		FacesContext faces = FacesContext.getCurrentInstance();
+		usersLogados = usuarios.userLogado(usuario.getNomeUsuario());
 		
-		try 
+		if(usersLogados.isEmpty())
 		{
-			et.begin();
-			CadastroUsuarios cadastro = new CadastroUsuarios(new Usuarios(em));
-			cadastro.salvar(usuario);
-			this.usuario = new Usuario();
-			faces.addMessage(null, new FacesMessage("Salvo com sucesso."));
-			et.commit();
-			
-		} 
-		catch (NegocioException e) 
-		{
-			et.rollback();
-			FacesMessage mensagem = new FacesMessage(e.getMessage());
-			mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
-			faces.addMessage(null, mensagem);
+			try 
+			{
+				et.begin();
+				CadastroUsuarios cadastro = new CadastroUsuarios(new Usuarios(em));
+				cadastro.salvar(usuario);
+				this.usuario = new Usuario();
+				faces.addMessage(null, new FacesMessage("Salvo com sucesso."));
+				et.commit();
+				
+			} 
+			catch (NegocioException e) 
+			{
+				et.rollback();
+				FacesMessage mensagem = new FacesMessage(e.getMessage());
+				mensagem.setSeverity(FacesMessage.SEVERITY_ERROR);
+				faces.addMessage(null, mensagem);
+			}
+			finally 
+			{
+				em.close();
+			}
 		}
-		finally 
+		else
 		{
-			em.close();
+			FacesContext.getCurrentInstance().addMessage( 
+			null, new FacesMessage(FacesMessage.SEVERITY_ERROR, 
+			"Nome de usuário já existe! Por favor digite outro.", "Erro ao cadastrar!"));
 		}
+		
+		
 	}
   
 	public Usuario getUsuario() {
@@ -85,5 +100,14 @@ public class CadastroUsuarioBean implements Serializable {
 	{
 		return tipoConta.values();
 	}
+
+	public List<Usuario> getUsersLogados() {
+		return usersLogados;
+	}
+
+	public void setUsersLogados(List<Usuario> usersLogados) {
+		this.usersLogados = usersLogados;
+	}
+	
 	
 }

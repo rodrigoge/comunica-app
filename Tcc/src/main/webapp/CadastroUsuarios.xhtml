@@ -27,6 +27,13 @@
 				<p:outputLabel value="Nome" for="nome"/>
 				<p:inputText id="nome" value="#{cadastroUsuarioBean.usuario.nome}" required="true" requiredMessage="Nome obrigatório." style = "width: 500px;"/>
 				
+				<p:outputLabel value="Idade" for="idade"/>
+				<p:inputMask id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" 
+					requiredMessage="Idade obrigatória." mask="99" 
+					style="width: 40px; margin-top: -20px;" disabled="true">
+					<p:slider for="idade" minValue="4" maxValue="90" style="width: 200px; margin-bottom: 10px"/>
+				</p:inputMask>
+				
 				<p:outputLabel value="Usuário" for="usuario"/>
 				<p:inputText id="usuario" value="#{cadastroUsuarioBean.usuario.nomeUsuario}" required="true" 
 					requiredMessage="Nome de usuário obrigatório." style="width: 200px;">
@@ -34,12 +41,7 @@
 					<f:validateLength minimum="5" />
 					<p:ajax event="keyup" />
 				</p:inputText>
-					
-				<p:outputLabel value="Idade" for="idade"/>
-				<p:inputMask id="idade" value="#{cadastroUsuarioBean.usuario.idade}" required="true" 
-					requiredMessage="Idade obrigatória." mask="99" style="width: 40px">
-					<p:keyFilter regEx="/[0-9]/i"/>
-				</p:inputMask>
+				
 				
 				<p:outputLabel value="E-mail" for="email"/>
 				<p:inputText id="email" value="#{cadastroUsuarioBean.usuario.email}" required="true" 
@@ -66,7 +68,7 @@
 					action="#{cadastroUsuarioBean.salvar}" icon="ui-icon-circle-check" update="@form"/>
 				
 				<p:commandButton style="margin-left: 40%;" value="Voltar" 
-					icon="ui-icon-arrowreturn-1-n" onclick="voltar()"/>
+					icon="ui-icon-arrowreturn-1-n" onclick="voltar()" update="@form"/>
 				
 			</p:panelGrid>		
 		</h:form>

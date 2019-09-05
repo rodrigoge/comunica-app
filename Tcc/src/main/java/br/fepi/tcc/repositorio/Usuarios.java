@@ -26,6 +26,14 @@ public class Usuarios implements Serializable{
 		return query.getResultList();
 	}
 	
+	public List<Usuario> userLogado(String nomeUsuario)
+	{
+		TypedQuery<Usuario> query = em.createQuery(
+		"SELECT u FROM Usuario u WHERE u.nomeUsuario = :nomeUsuario", Usuario.class)
+		.setParameter("nomeUsuario", nomeUsuario);
+		return query.getResultList();
+	}
+	
 	public Usuarios (EntityManager em)
 	{
 		this.em = em;
