@@ -3,12 +3,13 @@ function voltar()
 	window.history.back();
 }
 
-/*~ variável que recebe o ID das imagens ~*/
+/*
+
 var imagem = imagem.id;
 
 function carregarFundo(imagem)
 {   
-	/*~ variável que recebe o ID da DIV para realizar a troca do fundo ~*/
+
 	var div = document.getElementById('div1');
 	
 	if(div.click)
@@ -48,4 +49,4 @@ function carregarFundo(imagem)
 
 	
 }
-
+*/

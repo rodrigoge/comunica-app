@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import br.fepi.tcc.model.Imagem;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class ImagensBean {
 	
 	private List<Imagem> imagens = new ArrayList<>();

@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -17,7 +17,7 @@ import br.fepi.tcc.repositorio.Usuarios;
 import br.fepi.tcc.util.DataSource;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class UsuariosBeans implements Serializable {
 
 	private static final long serialVersionUID = 1L;
