@@ -18,7 +18,7 @@
 		
 				
 		<h:form id="menu" >
-			<p:menubar style="width: 98.9% !important; top: 0 !important; left: 0% !important;">
+			<p:menubar style="width: 97%; margin-left: 1%;">
 				<p:menuitem value="Home"
 					action="/Menu?faces-redirect=true" icon="ui-icon-home"/>
 					
@@ -53,35 +53,54 @@
 		
 		<h2>Prancha de Comunicação</h2>
 		
-		<div id="idprancha" class="div-prancha">
+		<div id="idprancha" class="div-prancha" style="margin-top: 2%;">
 		
 		    <div id="div1" class="card card-1"  onclick="PF('galeriaModal1').show();" title="Clique aqui para inserir uma imagem"/>
-		    <div id="div2" class="card card-2"  onclick="PF('galeriaModal1').show();" title="Clique aqui para inserir uma imagem"/>
-		    <div id="div3" class="card card-3"  onclick="PF('galeriaModal3').show();" title="Clique aqui para inserir uma imagem"/>
+		    <div id="div2" class="card card-2"  onclick="PF('galeriaModal2').show();" title="Clique aqui para inserir uma imagem"/>
+		   <!--  <div id="div3" class="card card-3"  onclick="PF('galeriaModal3').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div4" class="card card-4"  onclick="PF('galeriaModal4').show();" title="Clique aqui para inserir uma imagem"/>
-		    
+		   -->
 		    <div id="div5" class="card card-5"  onclick="PF('galeriaModal5').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div6" class="card card-6"  onclick="PF('galeriaModal6').show();" title="Clique aqui para inserir uma imagem"/>
-		    <div id="div7" class="card card-7"  onclick="PF('galeriaModal7').show();" title="Clique aqui para inserir uma imagem"/>
+		    <!-- <div id="div7" class="card card-7"  onclick="PF('galeriaModal7').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div8" class="card card-8"  onclick="PF('galeriaModal8').show();" title="Clique aqui para inserir uma imagem"/>
-		    
+		    -->
 		    <div id="div9" class="card card-9"  onclick="PF('galeriaModal9').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div10" class="card card-10"  onclick="PF('galeriaModal10').show();" title="Clique aqui para inserir uma imagem"/>
-		    <div id="div11" class="card card-11"  onclick="PF('galeriaModal11').show();" title="Clique aqui para inserir uma imagem"/>
+		    <!-- <div id="div11" class="card card-11"  onclick="PF('galeriaModal11').show();" title="Clique aqui para inserir uma imagem"/>
 		    <div id="div12" class="card card-12"  onclick="PF('galeriaModal12').show();" title="Clique aqui para inserir uma imagem"/>
+			-->
 		</div>
 		
-		<p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" 
+	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
+    	 cellspacing="0" cellpadding="2"
+    	 style="width: 600px; margin-left: 53%; margin-top: 2%; text-align: center;">
+    	 	<f:facet name="header">
+	        	Lista de Imagens
+	    	</f:facet>
+	    	
+	    	
+	    	
+       		<p:column>
+	            <h3>#{imagem.descricao}</h3>
+	            <h:graphicImage styleClass="imgClass" library="img/imagens-projeto" 
+	            	name="#{imagem.nome}" id="img" />                    
+        	</p:column>       
+        	<p:draggable for="img" />         
+   		</p:dataGrid>  
+	
+		<!-- <p:dialog widgetVar="galeriaModal1" header="Galeria" modal="true" 
 			resizable="false" height="300" width="500" style="text-align: center;"  >
 		    <p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
 		    	 cellspacing="0" cellpadding="2" width="40">
 		        <p:column >
 		            <h3>#{imagem.descricao}</h3>
-		            <h:graphicImage styleClass="imgClass" library="img" 
+		            <h:graphicImage styleClass="imgClass" library="img/imagens-projeto" 
 		            	name="#{imagem.nome}" onclick="carregarFundo(#{imagem.id})"/>                    
 		        </p:column>                
 		    </p:dataGrid>        
-		</p:dialog>
+		</p:dialog> -->
+		
 	</ui:define>
 	
 </ui:composition>

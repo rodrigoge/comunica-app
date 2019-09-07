@@ -46,7 +46,7 @@ public class CadastroUsuarioBean implements Serializable {
 		FacesContext faces = FacesContext.getCurrentInstance();
 		usersLogados = usuarios.userLogado(usuario.getNomeUsuario());
 		
-		if(usersLogados.isEmpty())
+		if(usersLogados.isEmpty() && usuario.getIdade() > 4 )
 		{
 			try 
 			{
@@ -74,7 +74,7 @@ public class CadastroUsuarioBean implements Serializable {
 		{
 			FacesContext.getCurrentInstance().addMessage( 
 			null, new FacesMessage(FacesMessage.SEVERITY_ERROR, 
-			"Nome de usuário já existe! Por favor digite outro.", "Erro ao cadastrar!"));
+			"Nome de usuário já existe ou idade incorreta, favor digitar novamente!", "Erro ao cadastrar!"));
 		}
 		
 		
