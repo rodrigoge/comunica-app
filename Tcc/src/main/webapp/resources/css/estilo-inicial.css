@@ -19,7 +19,7 @@
 /* fundo da página */
 body
 {
-	background-image: url("../resources/img/fundo-login/fundo-padrao.jpeg");
+	background-image: url("../resources/img/fundo-login/fundo-inicial.jpeg");
 	background-position: 40% 10%;
   	background-size: cover;
 }

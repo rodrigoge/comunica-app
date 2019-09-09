@@ -64,7 +64,7 @@
 		
 		<p:commandButton value="Imprimir Prancha" icon="ui-icon-print"
 			style="margin-left: 70%; margin-top: 2%;" type="button">
-			  <p:printer target="idprancha"/>
+			  <p:printer target="img"/>
 		</p:commandButton>
 		
 		<p:commandButton value="Limpar Prancha" onclick="window.location.reload()"
@@ -97,7 +97,7 @@
 		
 	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
     	 cellspacing="0" cellpadding="2" columns="2"
-    	 style="width: 20%; margin-left: 4%; margin-top: -3%; text-align: center;">
+    	 style="width: 22%; margin-left: 4%; margin-top: -3%; text-align: center;">
     	 	<f:facet name="header">
 	        	Lista de Imagens
 	    	</f:facet>
