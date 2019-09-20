@@ -15,8 +15,6 @@ import br.fepi.tcc.model.Imagem;
 public class ImagensBean {
 	
 	private List<Imagem> imagens = new ArrayList<>();
-	private List<Imagem> imagensDrop;
-	private Imagem imagemSelecionada;
 	private Imagem imagem;
 	 
 	public List<Imagem> listarImagens()
@@ -31,13 +29,6 @@ public class ImagensBean {
 	
 		return imagens;
 	}
-	
-	public void onImagemDrop(DragDropEvent ddEvent) {
-        Imagem imagem = ((Imagem) ddEvent.getData());
-  
-        imagensDrop.add(imagem);
-        imagens.remove(imagem);
-    }
 
 	public List<Imagem> getImagens() {
 		return imagens;
@@ -51,28 +42,9 @@ public class ImagensBean {
 		this.imagem = imagem;
 	}
 
-	public List<Imagem> getImagensDrop() {
-		return imagensDrop;
-	}
-
-	public void setImagensDrop(List<Imagem> imagensDrop) {
-		this.imagensDrop = imagensDrop;
-	}
-
 	public void setImagens(List<Imagem> imagens) {
 		this.imagens = imagens;
 	}
 
-	public Imagem getImagemSelecionada() {
-		return imagemSelecionada;
-	}
-
-	public void setImagemSelecionada(Imagem imagemSelecionada) {
-		this.imagemSelecionada = imagemSelecionada;
-	}
-	
-	
-	
-	
 
 }

@@ -10,7 +10,8 @@ public class Imagem implements Serializable {
 	private String nome;
 	private String descricao;
 	
-	public Imagem(int id, String nome, String descricao) {
+	public Imagem(int id, String nome, String descricao) 
+	{
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;

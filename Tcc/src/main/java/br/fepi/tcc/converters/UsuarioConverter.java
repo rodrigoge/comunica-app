@@ -14,6 +14,7 @@ import br.fepi.tcc.util.DataSource;
 @FacesConverter(forClass = Usuario.class)
 public class UsuarioConverter implements Converter {
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) 
 	{

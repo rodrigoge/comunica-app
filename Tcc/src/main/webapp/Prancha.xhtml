@@ -62,52 +62,42 @@
 			</p:dialog>
 		</h:form>
 		
-		<p:commandButton value="Imprimir Prancha" icon="ui-icon-print"
-			style="margin-left: 70%; margin-top: 2%;" type="button">
-			  <p:printer target="idprancha"/>
-		</p:commandButton>
+		<p:commandButton value="Imprimir Prancha" icon="ui-icon-print" id="btnImprimir"
+			style="margin-left: 70%; margin-top: 2%;" type="button" onclick="imprimir()"/>
 		
-		<p:commandButton value="Limpar Prancha" onclick="window.location.reload()"
+		<p:commandButton value="Limpar Prancha" id="btnLimpar"
+					onclick="window.location.reload()"
 	        		icon="ui-icon-refresh" style="text-align: center;" />
+	       
+	       
 		
 		<h2>Prancha de Comunicação</h2>
 		
-		<p:fieldset id="idprancha" class="div-prancha" rendered="#{empty imagensBean.imagensDrop}"
-			style="margin-top: 2%; width: 30%; border: none;">
-
-		    <p:fieldset id="div2" class="card card-2" value="#{imagensBean.imagensDrop}"
-		    	
-		    	title="Arraste a imagem até aqui."/>
-		    	
-		    <p:fieldset id="div3" class="card card-3" title="Arraste a imagem até aqui."/>
-		    <p:fieldset id="div4" class="card card-4" title="Arraste a imagem até aqui."/>
-		   	<p:fieldset id="div6" class="card card-6" title="Arraste a imagem até aqui."/>
-		    <p:fieldset id="div7" class="card card-7" title="Arraste a imagem até aqui."/>
-		    <p:fieldset id="div8" class="card card-8" title="Arraste a imagem até aqui."/>
-			<p:fieldset id="div10" class="card card-10" title="Arraste a imagem até aqui."/>
-		    <p:fieldset id="div11" class="card card-11" title="Arraste a imagem até aqui."/>
-		    <p:fieldset id="div12" class="card card-12" title="Arraste a imagem até aqui."/>
-			
+		<p:fieldset id="idprancha" class="div-prancha" style="margin-top: 2%; width: 30%; border: none;">
+			<p:fieldset id="card1" class="card card-1" title="Arraste a imagem até aqui."/>
+			<p:fieldset id="card2" class="card card-2" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card3" class="card card-3" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card4" class="card card-4" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card5" class="card card-5" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card6" class="card card-6" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card7" class="card card-7" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card8" class="card card-8" title="Arraste a imagem até aqui."/>
+		    <p:fieldset id="card9" class="card card-9" title="Arraste a imagem até aqui."/>
 		</p:fieldset>
-		
-		 <p:droppable for="idprancha" tolerance="touch" activeStyleClass="ui-state-highlight" 
-		 	datasource="idprancha" onDrop="handleDrop">
-        	<p:ajax listener="#{imagensBean.onImagemDrop}" update="idprancha" />
-    	</p:droppable>
-		
-	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem" 
-    	 cellspacing="0" cellpadding="2" columns="2"
-    	 style="width: 22%; margin-left: 4%; margin-top: -3%; text-align: center;">
-    	 	<f:facet name="header">
-	        	Lista de Imagens
-	    	</f:facet>
+
+	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem"
+    	 	cellspacing="0" cellpadding="2" columns="2" id="dataGridImagens"
+    	 		style="width: 22%; margin-left: 4%; margin-top: -3%; text-align: center;">
+    	 	
+    	 	<f:facet name="header">Lista de Imagens</f:facet>
 	        	
        		<p:column>
 	            <h3>#{imagem.descricao}</h3>
 	            <h:graphicImage styleClass="imgClass" library="img/imagens-projeto" 
 	            	name="#{imagem.nome}" id="img" />                    
-        	</p:column>       
-        	<p:draggable for="img" grid="10,20" opacity="0.3"/>         
+        	</p:column> 
+        	      
+        	<p:draggable for="img" grid="10,20" opacity="0.3"/>     
    		</p:dataGrid>  
    		
 	</ui:define>

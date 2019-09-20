@@ -1,6 +1,17 @@
 /* estiliza��o da prancha inteira*/
 .div-prancha { margin-left: 5%; }
 
+/*configuração de impressão*/
+@media print 
+{
+	#menu, #btnImprimir, #btnLimpar 
+	{ 
+		display: none; 
+	}
+	
+
+}
+
 /* estiliza��o para todos os cart�es */
 .card
 {
@@ -8,8 +19,8 @@
 	border-width: 1px;
   	border-style: solid;
   	border-color: #000;
-	width:20%;
-	height:25%;
+	width: 20%;
+	height: 140px;
 	float: left;
 	cursor: pointer;
 	margin-top: 5px;
@@ -20,18 +31,16 @@
 
 
 /********* posi��o de cada um dos cart�es *************/
-.card-1 { margin-left:3%; }
-.card-2 { margin-left:24%; }
-.card-3 { margin-left:45%; }
-.card-4 { margin-left:66%; }
-.card-5 { margin-top:13.8%; margin-left:3% }
-.card-6 { margin-top:13.8%; margin-left:24%; } 
-.card-7 { margin-top:13.8%; margin-left:45%; } 
-.card-8 { margin-top:13.8%; margin-left:66%; } 
-.card-9 { margin-top:27.3%; margin-left:3%; }
-.card-10 { margin-top:27.3%; margin-left:24%; }
-.card-11 { margin-top:27.3%; margin-left:45%; }
-.card-12 { margin-top:27.3%; margin-left:66%; }
+.card-1 { margin-left: 24%; }
+.card-2 { margin-left: 47%; }
+.card-3 { margin-left: 70%; }
+.card-4 { margin-top: 13.8%; margin-left:24%; } 
+.card-5 { margin-top: 13.8%; margin-left:47%; } 
+.card-6 { margin-top: 13.8%; margin-left:70%; } 
+.card-7 { margin-top: 27.3%; margin-left:24%; }
+.card-8 { margin-top: 27.3%; margin-left:47%; }
+.card-9 { margin-top: 27.3%; margin-left:70%; }
+
 /* -------------------------------------------------------------- */
 
 /* imagem dentro da modal */
@@ -51,6 +60,7 @@ body
 	background-image: url("../resources/img/fundo-login/fundo-padrao.jpeg");
 	background-position: 40% 10%;
   	background-size: cover;
+  	background-attachment: fixed;
 }
 
 img
