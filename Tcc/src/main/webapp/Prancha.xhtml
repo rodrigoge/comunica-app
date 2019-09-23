@@ -69,11 +69,14 @@
 					onclick="window.location.reload()"
 	        		icon="ui-icon-refresh" style="text-align: center;" />
 	       
-	       
 		
 		<h2>Prancha de Comunicação</h2>
 		
+		
+		
+		
 		<p:fieldset id="idprancha" class="div-prancha" style="margin-top: 2%; width: 30%; border: none;">
+		
 			<p:fieldset id="card1" class="card card-1" title="Arraste a imagem até aqui."/>
 			<p:fieldset id="card2" class="card card-2" title="Arraste a imagem até aqui."/>
 		    <p:fieldset id="card3" class="card card-3" title="Arraste a imagem até aqui."/>
@@ -83,18 +86,25 @@
 		    <p:fieldset id="card7" class="card card-7" title="Arraste a imagem até aqui."/>
 		    <p:fieldset id="card8" class="card card-8" title="Arraste a imagem até aqui."/>
 		    <p:fieldset id="card9" class="card card-9" title="Arraste a imagem até aqui."/>
-		</p:fieldset>
 
-	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem"
+		</p:fieldset>
+		
+		
+		
+		
+	  	<p:dataGrid value="#{imagensBean.imagens}" var="imagem" rows="6" paginator="true"
     	 	cellspacing="0" cellpadding="2" columns="2" id="dataGridImagens"
-    	 		style="width: 22%; margin-left: 4%; margin-top: -3%; text-align: center;">
+    	 	style="width: 22%; margin-left: 4%; margin-top: -3%; text-align: center;">
     	 	
     	 	<f:facet name="header">Lista de Imagens</f:facet>
 	        	
        		<p:column>
+       		
 	            <h3>#{imagem.descricao}</h3>
+	            
 	            <h:graphicImage styleClass="imgClass" library="img/imagens-projeto" 
-	            	name="#{imagem.nome}" id="img" />                    
+	            	name="#{imagem.nome}" id="img" />  
+	            	                  
         	</p:column> 
         	      
         	<p:draggable for="img" grid="10,20" opacity="0.3"/>     
