@@ -15,7 +15,7 @@
 		<h:head>
 			<h:outputStylesheet library="css" name="estilo-padrao.css" />
 		</h:head>
-
+		<!--  MENU DA PÁGINA -->
 		<h:form id="menu">
 			<p:menubar style="width: 97%; margin-left: 1%;">
 				<p:menuitem value="Home" action="/Menu?faces-redirect=true"
@@ -39,7 +39,8 @@
 						onclick="PF('modalLogout').show();" icon="ui-icon-close" />
 				</f:facet>
 			</p:menubar>
-
+			
+			<!-- MENU DE SAÍDA PARA O USUÁRIO -->
 			<p:dialog widgetVar="modalLogout" header="Deseja realmente sair?"
 				modal="true" resizable="false" height="50" width="300"
 				style="text-align: center !important;">
@@ -50,17 +51,28 @@
 				<p:commandButton value="Cancelar" action="#{loginBean.cancelar}"
 					ajax="false" icon="ui-icon-arrowrefresh-1-w" />
 			</p:dialog>
-
+			
+			<!-- MENU DE AJUDA AO USUÁRIO -->
 			<p:dialog widgetVar="modalHelp" header="Como utilizar a Prancha"
-				modal="true" resizable="false" height="150" width="500"
+				modal="true" resizable="false" height="350" width="500"
 				style="text-align: center !important;">
-			   Para utilizar a sua Prancha de Comunicação, basta clicar e segurar
-			   o botão esquerdo do mouse em cima da imagem que preferir 
-			   e arrastar a sua imagem selecionada para dentro
-			   das marcações exibidas ao lado. 
+				<p>Para utilizar a sua Prancha de Comunicação, basta clicar e
+					segurar o botão esquerdo do mouse em cima da imagem que preferir e
+					arrastar a sua imagem selecionada para dentro das marcações
+					exibidas ao lado.</p>
+				<br />
+				<p>Use o botão <b>Limpar Prancha</b> para retirar as imagens das
+					marcações e limpar os campos.</p>
+				<br />
+				<p>O botão <b>Imprimir Prancha</b> permite que você possa imprimir a
+					sua Prancha de Comunicação de acordo com as atividades que você
+					selecionou.</p>
 			</p:dialog>
 		</h:form>
-
+		
+		<h2>Prancha de Comunicação</h2>
+		
+		<!-- BOTÕES DE IMPRESSÃO E LIMPEZA DA PRANCHA -->
 		<p:commandButton value="Imprimir Prancha" icon="ui-icon-print"
 			id="btnImprimir" style="margin-left: 70%; margin-top: 2%;"
 			type="button" onclick="imprimir()" />
@@ -69,9 +81,11 @@
 			onclick="window.location.reload()" icon="ui-icon-refresh"
 			style="text-align: center;" />
 
-		<h2>Prancha de Comunicação</h2>
-
-		<p:fieldset id="imagensDisponiveis" legend="Lista de Imagens">
+		
+		
+		<!-- GRID DE CARREGAMENTO DAS IMAGENS -->
+		<p:fieldset id="imagensDisponiveis" legend="Lista de Imagens"
+			toggleable="true">
 			<p:dataGrid id="dataGridImagens" var="imagem"
 				value="#{imagensBean.imagens}" columns="2" rows="6" paginator="true">
 				<p:panel id="pnl" header="#{imagem.descricao}"
@@ -86,187 +100,196 @@
 					stack=".ui-panel" />
 			</p:dataGrid>
 		</p:fieldset>
+		<!-- PAINEL COM OS CARDS -->
+		<p:fieldset id="painel">
+		<!-- CARD 1 -->
+			<p:fieldset id="card1">
+				<p:outputPanel id="dropArea">
+					<p:dataTable id="selectedImagensTable" var="imagem"
+						value="#{imagensBean.droppedImagens}"
+						rendered="#{not empty imagensBean.droppedImagens}">
+						<p:column style="text-align: center;">
+							<p:graphicImage library="img/imagens-projeto"
+								name="#{imagem.nome}" id="img1" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
 
-		<p:fieldset id="card1">
-			<p:outputPanel id="dropArea">
-				<p:dataTable id="selectedImagensTable" var="imagem"
-					value="#{imagensBean.droppedImagens}"
-					rendered="#{not empty imagensBean.droppedImagens}">
-					<p:column style="text-align: center;">
-						<p:graphicImage library="img/imagens-projeto" name="#{imagem.nome}" id="img1" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
+			<p:droppable for="card1" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop}"
+					update="dropArea imagensDisponiveis" />
+			</p:droppable>
+			
+			<!-- CARD 2 -->
+			<p:fieldset id="card2">
+				<p:outputPanel id="dropArea2">
+					<p:dataTable id="selectedImagensTable2" var="imagem"
+						value="#{imagensBean.droppedImagens2}"
+						rendered="#{not empty imagensBean.droppedImagens2}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img2" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card2" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop2}"
+					update="dropArea2 imagensDisponiveis" />
+			</p:droppable>
+			
+			<!-- CARD 3 -->
+			<p:fieldset id="card3">
+				<p:outputPanel id="dropArea3">
+					<p:dataTable id="selectedImagensTable3" var="imagem"
+						value="#{imagensBean.droppedImagens3}"
+						rendered="#{not empty imagensBean.droppedImagens3}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img3" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card3" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop3}"
+					update="dropArea3 imagensDisponiveis" />
+			</p:droppable>
+			
+			<!-- CARD 4 -->
+			<p:fieldset id="card4">
+				<p:outputPanel id="dropArea4">
+					<p:dataTable id="selectedImagensTable4" var="imagem"
+						value="#{imagensBean.droppedImagens4}"
+						rendered="#{not empty imagensBean.droppedImagens4}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img4" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card4" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop4}"
+					update="dropArea4 imagensDisponiveis" />
+			</p:droppable>
+
+			<!-- CARD 5 -->
+			<p:fieldset id="card5">
+				<p:outputPanel id="dropArea5">
+					<p:dataTable id="selectedImagensTable5" var="imagem"
+						value="#{imagensBean.droppedImagens5}"
+						rendered="#{not empty imagensBean.droppedImagens5}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img5" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card5" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop5}"
+					update="dropArea5 imagensDisponiveis" />
+			</p:droppable>
+
+			<!-- CARD 6 -->
+			<p:fieldset id="card6">
+				<p:outputPanel id="dropArea6">
+					<p:dataTable id="selectedImagensTable6" var="imagem"
+						value="#{imagensBean.droppedImagens6}"
+						rendered="#{not empty imagensBean.droppedImagens6}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img6" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card6" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop6}"
+					update="dropArea6 imagensDisponiveis" />
+			</p:droppable>
+
+			<!-- CARD 7 -->
+			<p:fieldset id="card7">
+				<p:outputPanel id="dropArea7">
+					<p:dataTable id="selectedImagensTable7" var="imagem"
+						value="#{imagensBean.droppedImagens7}"
+						rendered="#{not empty imagensBean.droppedImagens7}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img7" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card7" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop7}"
+					update="dropArea7 imagensDisponiveis" />
+			</p:droppable>
+			
+			<!-- CARD 8 -->
+			<p:fieldset id="card8">
+				<p:outputPanel id="dropArea8">
+					<p:dataTable id="selectedImagensTable8" var="imagem"
+						value="#{imagensBean.droppedImagens8}"
+						rendered="#{not empty imagensBean.droppedImagens8}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img8" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card8" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop8}"
+					update="dropArea8 imagensDisponiveis" />
+			</p:droppable>
+
+			<!-- CARD 9 -->
+			<p:fieldset id="card9">
+				<p:outputPanel id="dropArea9">
+					<p:dataTable id="selectedImagensTable9" var="imagem"
+						value="#{imagensBean.droppedImagens9}"
+						rendered="#{not empty imagensBean.droppedImagens9}">
+						<p:column style="text-align: center;">
+							<p:graphicImage styleClass="imgClass"
+								library="img/imagens-projeto" name="#{imagem.nome}" id="img9" />
+						</p:column>
+					</p:dataTable>
+				</p:outputPanel>
+			</p:fieldset>
+
+			<p:droppable for="card9" tolerance="touch"
+				activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
+				onDrop="handleDrop">
+				<p:ajax listener="#{imagensBean.onImagemDrop9}"
+					update="dropArea9 imagensDisponiveis" />
+			</p:droppable>
 		</p:fieldset>
-
-		<p:droppable for="card1" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop}"
-				update="dropArea imagensDisponiveis" />
-		</p:droppable>
-
-		<p:fieldset id="card2">
-			<p:outputPanel id="dropArea2">
-				<p:dataTable id="selectedImagensTable2" var="imagem"
-					value="#{imagensBean.droppedImagens2}"
-					rendered="#{not empty imagensBean.droppedImagens2}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img2" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card2" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop2}"
-				update="dropArea2 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card3">
-			<p:outputPanel id="dropArea3">
-				<p:dataTable id="selectedImagensTable3" var="imagem"
-					value="#{imagensBean.droppedImagens3}"
-					rendered="#{not empty imagensBean.droppedImagens3}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img3" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card3" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop3}"
-				update="dropArea3 imagensDisponiveis" />
-		</p:droppable>
-	
-		<p:fieldset id="card4">
-			<p:outputPanel id="dropArea4">
-				<p:dataTable id="selectedImagensTable4" var="imagem"
-					value="#{imagensBean.droppedImagens4}"
-					rendered="#{not empty imagensBean.droppedImagens4}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img4" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card4" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop4}"
-				update="dropArea4 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card5">
-			<p:outputPanel id="dropArea5">
-				<p:dataTable id="selectedImagensTable5" var="imagem"
-					value="#{imagensBean.droppedImagens5}"
-					rendered="#{not empty imagensBean.droppedImagens5}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img5" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card5" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop5}"
-				update="dropArea5 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card6">
-			<p:outputPanel id="dropArea6">
-				<p:dataTable id="selectedImagensTable6" var="imagem"
-					value="#{imagensBean.droppedImagens6}"
-					rendered="#{not empty imagensBean.droppedImagens6}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img6" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card6" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop6}"
-				update="dropArea6 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card7">
-			<p:outputPanel id="dropArea7">
-				<p:dataTable id="selectedImagensTable7" var="imagem"
-					value="#{imagensBean.droppedImagens7}"
-					rendered="#{not empty imagensBean.droppedImagens7}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img7" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card7" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop7}"
-				update="dropArea7 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card8">
-			<p:outputPanel id="dropArea8">
-				<p:dataTable id="selectedImagensTable8" var="imagem"
-					value="#{imagensBean.droppedImagens8}"
-					rendered="#{not empty imagensBean.droppedImagens8}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img8" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card8" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop8}"
-				update="dropArea8 imagensDisponiveis" />
-		</p:droppable>
-		
-		<p:fieldset id="card9">
-			<p:outputPanel id="dropArea9">
-				<p:dataTable id="selectedImagensTable9" var="imagem"
-					value="#{imagensBean.droppedImagens9}"
-					rendered="#{not empty imagensBean.droppedImagens9}">
-					<p:column style="text-align: center;">
-						<p:graphicImage styleClass="imgClass"
-							library="img/imagens-projeto" name="#{imagem.nome}" id="img9" />
-					</p:column>
-				</p:dataTable>
-			</p:outputPanel>
-		</p:fieldset>
-
-		<p:droppable for="card9" tolerance="touch"
-			activeStyleClass="ui-state-highlight" datasource="dataGridImagens"
-			onDrop="handleDrop">
-			<p:ajax listener="#{imagensBean.onImagemDrop9}"
-				update="dropArea9 imagensDisponiveis" />
-		</p:droppable>
-
-
-
 	</ui:define>
 </ui:composition>
