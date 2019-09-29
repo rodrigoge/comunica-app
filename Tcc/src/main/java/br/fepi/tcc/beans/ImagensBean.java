@@ -208,5 +208,4 @@ public class ImagensBean {
 	public void setDroppedImagens9(List<Imagem> droppedImagens9) {
 		this.droppedImagens9 = droppedImagens9;
 	}
-	
 }
