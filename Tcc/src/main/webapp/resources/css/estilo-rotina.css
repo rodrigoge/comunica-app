@@ -1,4 +1,4 @@
-/* ESTILIZAÇÃO NO CORPO DA PÁGINA */
+/* ESTILIZAÃ‡ÃƒO NO CORPO DA PÃ�GINA */
 body 
 {
 	background-image: url("../resources/img/fundo-login/fundo-padrao.jpeg");
@@ -8,20 +8,32 @@ body
 	background-attachment: fixed;
 }
 
-/* BOTÃO DE LIMPEZA DOS CAMPOS DA ROTINA DIÁRIA */
+/* BOTÃƒO DE LIMPEZA DOS CAMPOS DA ROTINA DIÃ�RIA */
 #btnRotina
 {
-	margin-left: 950px;
+	margin-left: 80%;
 }
 
-/* CAMPO DE PONTUAÇÃO */
-#gridPontos
+/* CAMPO DE PONTUAÃ‡ÃƒO */
+#lblPontos
 {
-	margin-left: 500px;
-	width: 50px;
+	margin-left: 36%;
+	font-size: 37px;
+	font-family: Arial !important;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #000;
+	color: #fff;
 }
 
-/* ESTILIZAÇÃO NAS IMAGENS */
+#pontos
+{
+	width: 24px;
+	opacity: 1;
+	text-align: center;
+}
+
+
+/* ESTILIZAÃ‡ÃƒO NAS IMAGENS */
 img 
 {
 	width: 100px;
@@ -30,14 +42,14 @@ img
 	align-items: center;
 }
 
-/* IMPORTAÇÃO DA FONTE */
+/* IMPORTAÃ‡ÃƒO DA FONTE */
 @font-face
 {
 	font-family: Anson;
 	src: url("../resources/fontes/Anson-Regular.otf");
 }
 
-/* ESTILIZAÇÃO EM TODA A PÁGINA */
+/* ESTILIZAÃ‡ÃƒO EM TODA A PÃ�GINA */
 * {
 	margin: 0;
 	padding: 0;
@@ -45,7 +57,7 @@ img
 	font-size: 20px;
 }
 
-/* TÍTULO DA PÁGINA */
+/* TÃ�TULO DA PÃ�GINA */
 h2 
 {
 	font-size: 40px; 
@@ -57,7 +69,7 @@ h2
 	margin-top: 2% !important;
 }
 
-/* MENU DA PÁGINA */
+/* MENU DA PÃ�GINA */
 #menu 
 {
 	width: 100%;
@@ -76,7 +88,7 @@ fieldset
 {
 	width: 20% !important;
 	height: 200px;
-	text-align: center;
+	
 	margin-left: 1%;
 	border: none;
 	margin-top: -30px;
@@ -90,7 +102,7 @@ fieldset
 	text-align: center;
 }
 
-/* PAINEL ONDE OS CARDS ESTÃO INSERIDOS */
+/* PAINEL ONDE OS CARDS ESTÃƒO INSERIDOS */
 #painel
 {
 	border: none;
@@ -108,37 +120,26 @@ fieldset
 }
 
 /* ESTILIZANDO O POSICIONAMENTO DOS CARDS */
-#card4, #card7
+#card4, #check4
 {
-	margin-top: 3%;
+	margin-left: 86%;
+	margin-top: -185%;
 }
 
-#card2, #card5, #card8
+#card5, #check5, #card6, #check6
 {
-	margin-left: 38%; 
-	margin-top: -26%;
+	margin-left: 86%;
 }
 
-#card6, #card9
+#card7, #check7
 {
-	margin-left: 69%; 
-	margin-top: -23%;
+	margin-left: 172%;
+	margin-top: -180%;
 }
 
-#card3
+#card8, #check8, #card9, #check9
 {
-	margin-left: 500px;
-	margin-top: -166px;
-}
-
-#check2
-{
-	margin-left: 33%;
-}
-
-#check3
-{
-	margin-left: 68%;
+	margin-left: 172%;
 }
 
 
