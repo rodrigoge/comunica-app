@@ -30,9 +30,9 @@ public class ImagensBean {
 		imagens.add(new Imagem(1, "triste.png", "Carinha Triste"));
 		imagens.add(new Imagem(2, "bravo.png", "Carinha Bravo"));
 		imagens.add(new Imagem(3, "brinquedos.png", "Brincar"));
-		imagens.add(new Imagem(4, "feliz.png", "Carinha Feliz"));
-		imagens.add(new Imagem(5, "triste.png", "Carinha Triste"));
-		imagens.add(new Imagem(6, "bravo.png", "Carinha Bravo"));
+		imagens.add(new Imagem(4, "comer.png", "Comer"));
+		imagens.add(new Imagem(5, "estudar.png", "Estudar"));
+		imagens.add(new Imagem(6, "escovar.png", "Escovar"));
 		imagens.add(new Imagem(7, "brinquedos.png", "Brincar"));
 		imagens.add(new Imagem(8, "feliz.png", "Carinha Feliz"));
 		imagens.add(new Imagem(9, "triste.png", "Carinha Triste"));
