@@ -76,12 +76,12 @@
 		
 		<!-- BOTÕES DE IMPRESSÃO E LIMPEZA DA PRANCHA -->
 		<p:commandButton value="Imprimir Prancha" icon="ui-icon-print"
-			id="btnImprimir" style="margin-left: 70%; margin-top: 2%;"
+			id="btnImprimir" style="margin-left: 85%; margin-top: 2%;"
 			type="button" onclick="imprimir()" />
 
 		<p:commandButton value="Limpar Prancha" id="btnLimpar"
 			onclick="window.location.reload()" icon="ui-icon-refresh"
-			style="text-align: center;" />
+			style="text-align: center; margin-left: 85%; margin-top: 2%;" />
 
 		
 		
@@ -91,9 +91,9 @@
 			<p:dataGrid id="dataGridImagens" var="imagem"
 				value="#{imagensBean.imagens}" columns="2" rows="6" paginator="true">
 				<p:panel id="pnl" header="#{imagem.descricao}"
-					style="text-align:center; width: 160px; height: 170px;">
+					style="text-align:center; width: 140px; height: 140px;">
 					<h:panelGrid columns="1">
-						<p:graphicImage styleClass="imgClass"
+						<p:graphicImage style="width: 90px; height: 90px; text-align: center;"
 							library="img/imagens-projeto" name="#{imagem.nome}" id="img" />
 					</h:panelGrid>
 				</p:panel>
@@ -102,6 +102,7 @@
 					stack=".ui-panel" />
 			</p:dataGrid>
 		</p:fieldset>
+		
 		<!-- PAINEL COM OS CARDS -->
 		<p:fieldset id="painel">
 		<!-- CARD 1 -->
@@ -187,7 +188,7 @@
 				<p:ajax listener="#{imagensBean.onImagemDrop4}"
 					update="dropArea4 imagensDisponiveis" />
 			</p:droppable>
-
+			
 			<!-- CARD 5 -->
 			<p:fieldset id="card5">
 				<p:outputPanel id="dropArea5">
@@ -208,7 +209,7 @@
 				<p:ajax listener="#{imagensBean.onImagemDrop5}"
 					update="dropArea5 imagensDisponiveis" />
 			</p:droppable>
-
+			
 			<!-- CARD 6 -->
 			<p:fieldset id="card6">
 				<p:outputPanel id="dropArea6">
@@ -229,7 +230,7 @@
 				<p:ajax listener="#{imagensBean.onImagemDrop6}"
 					update="dropArea6 imagensDisponiveis" />
 			</p:droppable>
-
+			
 			<!-- CARD 7 -->
 			<p:fieldset id="card7">
 				<p:outputPanel id="dropArea7">
@@ -271,7 +272,7 @@
 				<p:ajax listener="#{imagensBean.onImagemDrop8}"
 					update="dropArea8 imagensDisponiveis" />
 			</p:droppable>
-
+			
 			<!-- CARD 9 -->
 			<p:fieldset id="card9">
 				<p:outputPanel id="dropArea9">
@@ -292,6 +293,7 @@
 				<p:ajax listener="#{imagensBean.onImagemDrop9}"
 					update="dropArea9 imagensDisponiveis" />
 			</p:droppable>
+			
 		</p:fieldset>
 	</ui:define>
 </ui:composition>

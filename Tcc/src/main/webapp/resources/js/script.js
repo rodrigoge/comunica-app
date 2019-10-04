@@ -13,7 +13,7 @@ function handleDrop(event, ui)
 }
 
 function incrementaValor(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check1");
 	if(check.checked)
 	{
@@ -21,18 +21,18 @@ function incrementaValor(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value += 10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor2(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check2");
 	if(check.checked)
 	{
@@ -40,18 +40,18 @@ function incrementaValor2(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value += 10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor3(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check3");
 	if(check.checked)
 	{
@@ -59,18 +59,18 @@ function incrementaValor3(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor4(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check4");
 	if(check.checked)
 	{
@@ -78,18 +78,18 @@ function incrementaValor4(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor5(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check5");
 	if(check.checked)
 	{
@@ -97,18 +97,18 @@ function incrementaValor5(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor6(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check6");
 	if(check.checked)
 	{
@@ -116,18 +116,18 @@ function incrementaValor6(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor7(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check7");
 	if(check.checked)
 	{
@@ -135,18 +135,18 @@ function incrementaValor7(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor8(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check8");
 	if(check.checked)
 	{
@@ -154,18 +154,18 @@ function incrementaValor8(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }
 
 function incrementaValor9(valorMaximo) {
-	var value = parseInt(document.getElementById('pontos').value, 9);
+	var value = parseInt(document.getElementById('pontos').value);
 	var check = document.getElementById("check9");
 	if(check.checked)
 	{
@@ -173,12 +173,12 @@ function incrementaValor9(valorMaximo) {
 		if (value >= valorMaximo) {
 			value = valorMaximo;
 		} else {
-			value++;
+			value+=10;
 		}
 	}
 	else
 	{
-		value = value - 1;
+		value -= 10;
 	}
 	document.getElementById('pontos').value = value;
 }

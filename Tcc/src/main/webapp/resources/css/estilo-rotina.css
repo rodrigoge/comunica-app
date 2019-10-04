@@ -11,23 +11,21 @@ body
 /* BOTÃƒO DE LIMPEZA DOS CAMPOS DA ROTINA DIÃ�RIA */
 #btnRotina
 {
-	margin-left: 80%;
+	margin-left: 85%;
+	margin-bottom: 2%;
 }
 
 /* CAMPO DE PONTUAÃ‡ÃƒO */
 #lblPontos
 {
-	margin-left: 36%;
-	font-size: 37px;
-	font-family: Arial !important;
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: #000;
+	margin-left: 85%;
+	font-size: 28px;
 	color: #fff;
 }
 
 #pontos
 {
-	width: 24px;
+	width: 30px;
 	opacity: 1;
 	text-align: center;
 }
@@ -54,13 +52,13 @@ img
 	margin: 0;
 	padding: 0;
 	font-family: Anson !important;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 /* TÃ�TULO DA PÃ�GINA */
 h2 
 {
-	font-size: 40px; 
+	font-size: 28px; 
 	color: #fffdd9;
 	font-family: Arial Narrow, sans-serif !important;
 	text-align: center !important;
@@ -86,19 +84,19 @@ fieldset
 /* PAINEL ONDE FICA O GRID DAS IMAGENS CARREGADAS */
 #imagensDisponiveis 
 {
-	width: 20% !important;
+	width: 10% !important;
 	height: 200px;
-	
+	text-align: center;
 	margin-left: 1%;
 	border: none;
-	margin-top: -30px;
+	margin-top: -110px;
 }
 
 /* GRID COM AS IMAGENS CARREGADAS DA BEAN */
 #dataGridImagens 
 {
-	width: 360px;
-	height: 200px !important;
+	width: 315px;
+	height: 90px !important;
 	text-align: center;
 }
 
@@ -106,41 +104,43 @@ fieldset
 #painel
 {
 	border: none;
-	margin-left: 34%;
+	margin-left: 28%;
 	margin-top: -200px;
-	height: 560px;
-	width: 300px;
+	height: 550px;
+	width: 750px;
 }
 
 /* DEFININDO O TAMANHO DOS CARDS */
 #card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9
 {
-	width: 180px; 
-	height: 140px;
+	width: 160px; 
+	height: 120px;
 }
 
-/* ESTILIZANDO O POSICIONAMENTO DOS CARDS */
-#card4, #check4
+#card2, #check2, 
+#card5, #check5,
+#card8, #check8
 {
-	margin-left: 86%;
-	margin-top: -185%;
+	margin-left: 35%;
+	margin-top: -18%;
 }
 
-#card5, #check5, #card6, #check6
+#card3, #check3,
+#card6, #check6,
+#card9, #check9
 {
-	margin-left: 86%;
+	margin-left: 70%;
+	margin-top: -18%;
 }
 
-#card7, #check7
+/*ESTILIZAÇÃO DO CHECKBOX PARA CADA DAMPO */
+#check1, #check2, #check3, #check4, #check5, #check6, #check7, #check8, #check9
 {
-	margin-left: 172%;
-	margin-top: -180%;
+	width: 15px;
+	height: 15px;
 }
 
-#card8, #check8, #card9, #check9
-{
-	margin-left: 172%;
-}
+
 
 
 
