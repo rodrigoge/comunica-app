@@ -18,18 +18,18 @@
 		<!--  MENU DA PÁGINA -->
 		<h:form id="menu">
 			<p:menubar style="width: 97%; margin-left: 1%;">
-				<p:menuitem value="Home" action="/Menu?faces-redirect=true"
+				<p:menuitem value="Home" outcome="/Menu?faces-redirect=true"
 					icon="ui-icon-home" />
 
 				<p:menuitem value="Cadastro de Pessoas"
-					action="/CadastroUsuarios?faces-redirect=true"
+					outcome="/CadastroUsuarios?faces-redirect=true"
 					icon=" ui-icon-person" />
 
 				<p:menuitem value="Prancha de Comunicação"
-					action="/Prancha?faces-redirect=true" icon="ui-icon-star" />
+					outcome="/Prancha?faces-redirect=true" icon="ui-icon-star" />
 
-				<p:menuitem value="Rotina Diária"
-					action="/Rotina?faces-redirect=true" icon="ui-icon-star" />
+				<p:menuitem value="Rotina Diária" rendered="#{cadastroUsuarioBean.tipoConta != 'PACIENTE'}"
+					outcome="/Rotina?faces-redirect=true" icon="ui-icon-star" />
 
 				<f:facet name="options">
 					<p:commandButton type="button" value="Ajuda"
@@ -135,7 +135,7 @@
 			<!-- CHECKBOX 1 PARA PONTUAÇÃO -->
 			<p:inputText id="check1" type="checkbox"
 				checked="incrementaValor(10);return false;"
-				onclick="incrementaValor(100);" />
+				onclick="incrementaValor(100);"/>
 				
 			<!-- CARD 2 -->
 			<p:fieldset id="card2">
@@ -162,7 +162,7 @@
 			<p:inputText id="check2" type="checkbox"
 				checked="incrementaValor2(10);return false;"
 				onclick="incrementaValor2(100);" />
-				
+			
 			<!-- CARD 3 -->
 			<p:fieldset id="card3">
 				<p:outputPanel id="dropArea3">
@@ -187,7 +187,7 @@
 			<p:inputText id="check3" type="checkbox"
 				checked="incrementaValor3(10);return false;"
 				onclick="incrementaValor3(100);" />
-				
+			
 			<!-- CARD 4 -->
 			<p:fieldset id="card4">
 				<p:outputPanel id="dropArea4">
@@ -212,7 +212,7 @@
 			<p:inputText id="check4" type="checkbox"
 				checked="incrementaValor4(10);return false;"
 				onclick="incrementaValor4(100);" />
-				
+			
 			<!-- CARD 5 -->
 			<p:fieldset id="card5">
 				<p:outputPanel id="dropArea5">
@@ -237,7 +237,7 @@
 			<p:inputText id="check5" type="checkbox"
 				checked="incrementaValor5(10);return false;"
 				onclick="incrementaValor5(100);" />
-				
+			
 			<!-- CARD 6 -->
 			<p:fieldset id="card6">
 				<p:outputPanel id="dropArea6">
@@ -287,7 +287,7 @@
 			<p:inputText id="check7" type="checkbox"
 				checked="incrementaValor7(10);return false;"
 				onclick="incrementaValor7(100);" />
-				
+			
 			<!-- CARD 8 -->
 			<p:fieldset id="card8">
 				<p:outputPanel id="dropArea8">
@@ -334,10 +334,11 @@
 					update="dropArea9 imagensDisponiveis" />
 			</p:droppable>
 			
-			<p:inputText id="check9" type="checkbox"
+			<p:inputText id="check9" type="checkbox" 
 				checked="incrementaValor9(10);return false;"
 				onclick="incrementaValor9(100);" />
-
+				
+			
 			
 		</p:fieldset>
 	</ui:define>

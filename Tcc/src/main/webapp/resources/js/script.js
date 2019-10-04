@@ -182,3 +182,18 @@ function incrementaValor9(valorMaximo) {
 	}
 	document.getElementById('pontos').value = value;
 }
+
+var card1 = document.getElementById('card1');
+var check1 = document.getElementById('check1');
+
+
+
+
+
+
+
+
+
+
+
+

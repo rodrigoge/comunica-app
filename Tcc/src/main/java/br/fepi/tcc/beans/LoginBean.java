@@ -20,7 +20,7 @@ public class LoginBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Usuario usuario = new Usuario();
+	private Usuario usuario;
 	private List<Usuario> lista_usuarios;
 	
 	EntityManager em = DataSource.getEntityManager();

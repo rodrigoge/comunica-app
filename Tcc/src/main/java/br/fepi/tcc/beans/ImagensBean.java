@@ -5,6 +5,7 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.component.checkbox.Checkbox;
 import org.primefaces.event.DragDropEvent;
 
 import br.fepi.tcc.model.Imagem;
@@ -24,6 +25,8 @@ public class ImagensBean {
 	private List<Imagem> droppedImagens7;
 	private List<Imagem> droppedImagens8;
 	private List<Imagem> droppedImagens9;
+	private Boolean check1;
+	
 
 	public List<Imagem> listarImagens() {
 		imagens.add(new Imagem(0, "feliz.png", "Carinha Feliz"));
@@ -60,9 +63,9 @@ public class ImagensBean {
 
 	public void onImagemDrop(DragDropEvent ddEvent) {
 		Imagem imagem = ((Imagem) ddEvent.getData());
-
 		droppedImagens.add(imagem);
 		imagens.remove(imagem);
+		
 	}
 	
 	public void onImagemDrop2(DragDropEvent ddEvent) {
@@ -208,4 +211,14 @@ public class ImagensBean {
 	public void setDroppedImagens9(List<Imagem> droppedImagens9) {
 		this.droppedImagens9 = droppedImagens9;
 	}
+
+	public boolean isCheck1() {
+		return check1;
+	}
+
+	public void setCheck1(boolean check1) {
+		this.check1 = check1;
+	}
+	
+	
 }

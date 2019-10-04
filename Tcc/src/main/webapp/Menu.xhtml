@@ -27,8 +27,8 @@
 				<p:menuitem value="Prancha de Comunicação"
 					action="/Prancha?faces-redirect=true" icon="ui-icon-star"/>
 					
-				<p:menuitem value="Rotina Diária" 
-					action="/Rotina?faces-redirect=true" icon="ui-icon-star"/>
+				<p:menuitem value="Rotina Diária" rendered="#{loginBean.usuario.tipoConta != 'PACIENTE'}"
+					outcome="/Rotina?faces-redirect=true" icon="ui-icon-star" />
 					
 				<f:facet name="options">
            			<p:commandButton type="button" value="Sair" 

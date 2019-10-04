@@ -18,18 +18,18 @@
 		<!--  MENU DA PÁGINA -->
 		<h:form id="menu">
 			<p:menubar style="width: 97%; margin-left: 1%;">
-				<p:menuitem value="Home" action="/Menu?faces-redirect=true"
+				<p:menuitem value="Home" outcome="/Menu?faces-redirect=true"
 					icon="ui-icon-home" />
 
 				<p:menuitem value="Cadastro de Pessoas"
-					action="/CadastroUsuarios?faces-redirect=true"
+					outcome="/CadastroUsuarios?faces-redirect=true"
 					icon=" ui-icon-person" />
 
 				<p:menuitem value="Prancha de Comunicação"
-					action="/Prancha?faces-redirect=true" icon="ui-icon-star" />
+					outcome="/Prancha?faces-redirect=true" icon="ui-icon-star" />
 
-				<p:menuitem value="Rotina Diária"
-					action="/Rotina?faces-redirect=true" icon="ui-icon-star" />
+				<p:menuitem value="Rotina Diária" rendered="#{loginBean.usuario.tipoConta != 'PACIENTE'}"
+					outcome="/Rotina?faces-redirect=true" icon="ui-icon-star" />
 
 				<f:facet name="options">
 					<p:commandButton type="button" value="Ajuda"

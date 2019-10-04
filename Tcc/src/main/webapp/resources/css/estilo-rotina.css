@@ -1,7 +1,7 @@
 /* ESTILIZAÃ‡ÃƒO NO CORPO DA PÃ�GINA */
 body 
 {
-	background-image: url("../resources/img/fundo-login/fundo-padrao.jpeg");
+	background-image: url("../resources/img/fundo-login/fundo-rotina.jpeg");
 	background-position: center;
 	background-repeat: repeat;
 	background-size: cover;
@@ -13,6 +13,7 @@ body
 {
 	margin-left: 85%;
 	margin-bottom: 2%;
+	margin-top: 8%;
 }
 
 /* CAMPO DE PONTUAÃ‡ÃƒO */
@@ -87,9 +88,9 @@ fieldset
 	width: 10% !important;
 	height: 200px;
 	text-align: center;
-	margin-left: 1%;
+	margin-left: -1%;
 	border: none;
-	margin-top: -110px;
+	margin-top: -230px;
 }
 
 /* GRID COM AS IMAGENS CARREGADAS DA BEAN */
@@ -117,27 +118,81 @@ fieldset
 	height: 120px;
 }
 
-#card2, #check2, 
-#card5, #check5,
-#card8, #check8
+#card1
 {
-	margin-left: 35%;
-	margin-top: -18%;
+	margin-left: 6%;
+	margin-top: 4%;
 }
 
-#card3, #check3,
-#card6, #check6,
+#check1
+{
+	margin-left: 6%;
+}
+
+#card2, #check2
+{
+	margin-left: 41%;
+	margin-top: -25%;
+}
+
+#card3,#check3
+{
+	margin-left: 75%;
+	margin-top: -27%;
+}
+
+#card4
+{
+	margin-left: -2%;
+	margin-top: 13%;	
+}
+
+#check4
+{
+	margin-left: -2%;
+}
+
+#card5, #check5
+{
+	margin-left: 36%;
+	margin-top: -20%;
+}
+
+#card6, #check6
+{
+	margin-left: 75%;
+	margin-top: -24%;
+}
+
+#card7
+{
+	margin-left: 6%;
+	margin-top: 5%;
+}
+
+#check7
+{
+	margin-left: 6%;
+}
+
+#card8, #check8
+{
+	margin-left: 38%;
+	margin-top: -19%;
+}
+
 #card9, #check9
 {
-	margin-left: 70%;
-	margin-top: -18%;
+	margin-left: 73%;
+	margin-top: -23%;
 }
+
 
 /*ESTILIZAÇÃO DO CHECKBOX PARA CADA DAMPO */
 #check1, #check2, #check3, #check4, #check5, #check6, #check7, #check8, #check9
 {
-	width: 15px;
-	height: 15px;
+	width: 18px;
+	height: 18px;
 }
 
 
