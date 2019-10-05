@@ -2,10 +2,8 @@ package br.fepi.tcc.repositorio;
 
 import java.io.Serializable;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
 import br.fepi.tcc.model.Usuario;
 import br.fepi.tcc.util.DataSource;
 
@@ -33,7 +31,7 @@ public class Usuarios implements Serializable{
 		.setParameter("nomeUsuario", nomeUsuario);
 		return query.getResultList();
 	}
-	
+
 	public Usuarios (EntityManager em)
 	{
 		this.em = em;

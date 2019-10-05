@@ -1,3 +1,4 @@
+ 
 package br.fepi.tcc.model;
 
 import java.io.Serializable;
@@ -35,8 +36,8 @@ public class Usuario implements Serializable {
 	@Column(name = "senha", length = 60, nullable = false)
 	private String senha;
 	
-	@Enumerated(EnumType.STRING)
-	private tipoConta tipoConta;
+	@Column(name = "tipoConta", length = 60, nullable = false)
+	private String tipoConta;
 
 	public Long getId() {
 		return id;
@@ -86,11 +87,11 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
-	public tipoConta getTipoConta() {
+	public String getTipoConta() {
 		return tipoConta;
 	}
 
-	public void setTipoConta(tipoConta tipoConta) {
+	public void setTipoConta(String tipoConta) {
 		this.tipoConta = tipoConta;
 	}
 
