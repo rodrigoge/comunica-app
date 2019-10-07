@@ -23,6 +23,7 @@ public class LoginBean implements Serializable {
 
 	private Usuario usuario = new Usuario();
 	private List<Usuario> lista_usuarios;
+	private boolean exibeOpcao = true;
 	EntityManager em = DataSource.getEntityManager();
 	private Usuarios usuarios = new Usuarios(em);
 
@@ -52,12 +53,18 @@ public class LoginBean implements Serializable {
 		}
 	}
 
-	public tipoConta[] gettipoConta()
+	public void mostrarCampo()
 	{
-		return tipoConta.values();
+		String tipoUser = "";
+		if(tipoUser.equals("TUTOR"))
+		{
+			this.setExibeOpcao(true);
+		}
+		else
+		{
+			this.setExibeOpcao(false);
+		}
 	}
-	
-	
 
 	public String sair() {
 		FacesContext fc = FacesContext.getCurrentInstance();
@@ -101,5 +108,16 @@ public class LoginBean implements Serializable {
 	public void setUsuarios(Usuarios usuarios) {
 		this.usuarios = usuarios;
 	}
+
+	public boolean isExibeOpcao() {
+		return exibeOpcao;
+	}
+
+	public void setExibeOpcao(boolean exibeOpcao) {
+		this.exibeOpcao = exibeOpcao;
+	}
+	
+	
+	
 
 }

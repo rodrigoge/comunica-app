@@ -27,6 +27,7 @@ body
 	background-repeat: repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	overflow: hidden;
 }
 
 /* BOTÃƒO DE LIMPEZA DOS CAMPOS DA ROTINA DIÃ�RIA */
@@ -48,8 +49,8 @@ body
 /* ESTILIZAÃ‡ÃƒO NAS IMAGENS */
 img 
 {
-	width: 100px;
-	height: 100px;
+	width: 60px;
+	height: 60px;
 	cursor: pointer;
 	align-items: center;
 }
@@ -66,7 +67,7 @@ img
 	margin: 0;
 	padding: 0;
 	font-family: Anson !important;
-	font-size: 16px;
+	font-size: 14px;
 	
 }
 
@@ -100,11 +101,11 @@ fieldset
 #imagensDisponiveis 
 {
 	width: 10% !important;
-	height: 200px;
+	height: 160px;
 	text-align: center;
 	margin-left: 1%;
 	border: none;
-	margin-top: -140px;
+	margin-top: -155px;
 }
 
 /* GRID COM AS IMAGENS CARREGADAS DA BEAN */
@@ -120,7 +121,7 @@ fieldset
 {
 	border: none;
 	margin-left: 28%;
-	margin-top: -190px;
+	margin-top: -130px;
 	height: 550px;
 	width: 750px;
 }
@@ -128,8 +129,8 @@ fieldset
 /* DEFININDO O TAMANHO DOS CARDS */
 #card1, #card2, #card3, #card4, #card5, #card6, #card7, #card8, #card9
 {
-	width: 160px; 
-	height: 120px;
+	width: 110px; 
+	height: 90px;
 }
 
 /* ESTILIZANDO O POSICIONAMENTO DOS CARDS */
@@ -141,13 +142,13 @@ fieldset
 #card2, #card5, #card8
 {
 	margin-left: 35%;
-	margin-top: -18.8%;
+	margin-top: -15%;
 }
 
 #card3, #card6, #card9
 {
 	margin-left: 70%;
-	margin-top: -18.8%;
+	margin-top: -15%;
 }
 
 #text1, #text2

@@ -17,7 +17,9 @@
 		</h:head>
 		
 		<h:form id="menu">
+			<p:ajax update="menu" event="change"/>
 			<p:menubar id="menubar" style="width: 97%; margin-left: 1%;">
+				
 				<p:menuitem value="Home"
 					action="/Menu?faces-redirect=true" icon="ui-icon-home"/>
 					
@@ -26,9 +28,9 @@
 					
 				<p:menuitem value="Prancha de Comunicação"
 					action="/Prancha?faces-redirect=true" icon="ui-icon-star"/>
-					
-				<p:menuitem value="Rotina Diária" rendered="#{loginBean.gettipoConta.values == 'TUTOR'}"
-					action="/Rotina?faces-redirect=true" icon="ui-icon-star" />
+				
+				<p:menuitem value="Rotina Diária" action="/Rotina?faces-redirect=true" 
+					rendered="#{loginBean.usuario.tipoConta == 'TUTOR'}" icon="ui-icon-star" update="@all :menu:menubar"/>
 					
 				<f:facet name="options">
            			<p:commandButton type="button" value="Sair" 
