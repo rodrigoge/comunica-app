@@ -13,7 +13,7 @@
 	margin: 0;
 	padding: 0;
 	font-family: Anson !important;
-	font-size: 20px;
+	font-size: 16px;
 }	
 
 /* fundo da página */
@@ -42,7 +42,7 @@ form
 /* títulos das páginas */
 h2
 {
-	font-size: 28px;
+	font-size: 20px;
 	color: #fff;
 
 }

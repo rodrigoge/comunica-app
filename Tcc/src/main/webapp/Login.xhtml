@@ -16,7 +16,7 @@
 			<h:outputStylesheet library="css" name="estilo-inicial.css"/>
 		</h:head>
 		
-		<h:form style="margin-top: 15%; margin-left: 5%; width: 300px;">
+		<h:form style="margin-top: 10%; margin-left: 7%; width: 300px;">
 			<p:growl showDetail="false" autoUpdate="true" showSummary="true"/>
 			
 			<p:panelGrid columns="1" styleClass="semBorda">
@@ -30,9 +30,17 @@
 				<p:inputText id="senha" type="password" value="#{loginBean.usuario.senha}" 
 					required="true" requiredMessage="Senha obrigatória." style="width: 500px;"/>	
 				
+				<p:outputLabel value="Tipo de Conta" required="true" requiredMessage="Tipo obrigatório."/>
+					<p:selectOneMenu id="tipo" value="#{loginBean.usuario.tipoConta}">
+						<f:selectItem itemLabel="Selecione o tipo" itemValue="" />
+						<f:selectItems value="#{loginBean.tipoConta}" var="tipoConta" 
+							itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
+					</p:selectOneMenu>
+					
+				<p:separator/>
+				
 				<p:commandButton value="Entrar" action="#{loginBean.entrar}" 
-					icon="ui-icon-circle-check" style="margin-left:38%;"
-					update="@all"/>
+					icon="ui-icon-circle-check" style="margin-left:38%;"/>
 				
 				<p:link style="margin-left: 30%; text-decoration: none;" 
 					href="CadastroUsuarios.xhtml" value="Não tem cadastro? Clique aqui!"/>

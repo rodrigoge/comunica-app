@@ -13,7 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
 import br.fepi.tcc.model.Usuario;
-import br.fepi.tcc.model.tipoConta;
+import br.fepi.tcc.model.TipoConta;
 import br.fepi.tcc.negocio.CadastroUsuarios;
 import br.fepi.tcc.negocio.exception.NegocioException;
 import br.fepi.tcc.repositorio.Usuarios;
@@ -96,9 +96,9 @@ public class CadastroUsuarioBean implements Serializable {
 		this.todosUsuarios = todosUsuarios;
 	}
 
-	public tipoConta[] gettipoConta()
+	public TipoConta[] gettipoConta()
 	{
-		return tipoConta.values();
+		return TipoConta.values();
 	}
 
 	public List<Usuario> getUsersLogados() {

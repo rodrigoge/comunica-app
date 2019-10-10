@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+
+import br.fepi.tcc.model.TipoConta;
 import br.fepi.tcc.model.Usuario;
 import br.fepi.tcc.util.DataSource;
 
@@ -29,6 +31,14 @@ public class Usuarios implements Serializable{
 		TypedQuery<Usuario> query = em.createQuery(
 		"SELECT u FROM Usuario u WHERE u.nomeUsuario = :nomeUsuario", Usuario.class)
 		.setParameter("nomeUsuario", nomeUsuario);
+		return query.getResultList();
+	}
+	
+	public List<Usuario> userTipo(TipoConta tipoConta)
+	{
+		TypedQuery<Usuario> query = em.createQuery(
+		"SELECT u FROM Usuario u WHERE u.tipoConta = :tipoConta", Usuario.class)
+		.setParameter("tipoConta", tipoConta);
 		return query.getResultList();
 	}
 

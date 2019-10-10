@@ -1,11 +1,11 @@
 package br.fepi.tcc.model;
 
-public enum tipoConta {
-	TUTOR("Tutor/Médico"), PACIENTE("Paciente");
+public enum TipoConta {
+	RESPONSAVEL("Responsável"), PACIENTE("Paciente");
 	
 	private String tipo;
 	
-	tipoConta(String tipo)
+	TipoConta(String tipo)
 	{
 		this.tipo = tipo;
 	}

@@ -62,7 +62,10 @@
 						<f:selectItems value="#{cadastroUsuarioBean.tipoConta}" var="tipoConta" 
 							itemValue="#{tipoConta}" itemLabel="#{tipoConta.tipo}"/>
 					</p:selectOneMenu>
-
+				
+				<p:separator/>
+				<p:separator/>
+				
 				<p:commandButton style="margin-left: 180%;" value="Salvar" 
 					action="#{cadastroUsuarioBean.salvar}" icon="ui-icon-circle-check" update="@form"/>
 				
