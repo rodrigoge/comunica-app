@@ -25,6 +25,8 @@ public class LoginBean implements Serializable {
 	private List<Usuario> lista_usuarios;
 	EntityManager em = DataSource.getEntityManager();
 	private Usuarios usuarios = new Usuarios(em);
+	String senha;
+	String nomeUsuario;
 
 	public void prepararCadastro() {
 		if (this.usuario == null) {
@@ -34,11 +36,12 @@ public class LoginBean implements Serializable {
 
 	public String entrar() {
 
-		lista_usuarios = usuarios.buscarUsuario(usuario.getNomeUsuario(), usuario.getSenha());
+		lista_usuarios = usuarios.buscarUsuario(usuario.getNomeUsuario(), 
+				usuario.getSenha(), usuario.getTipoConta());
 
 		if (lista_usuarios.isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
-					"Usuário ou senha estão incorretos!", "Erro ao logar!"));
+					"Usuário, senha ou tipo estão incorretos!", "Erro ao logar!"));
 
 			return null;
 		} else {
@@ -60,7 +63,7 @@ public class LoginBean implements Serializable {
 	}
 
 	public boolean isResponsavel() {
-		if (this.usuario.getTipoConta().equals(TipoConta.RESPONSAVEL)) {
+		if (this.usuario.getTipoConta().equals("RESPONSAVEL")) {
 			return true;
 		} else
 			return false;

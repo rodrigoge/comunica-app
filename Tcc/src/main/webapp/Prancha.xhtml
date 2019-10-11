@@ -28,8 +28,8 @@
 				<p:menuitem value="Prancha de Comunicação"
 					outcome="/Prancha?faces-redirect=true" icon="ui-icon-star" />
 
-				<p:menuitem value="Rotina Diária"
-					outcome="/Rotina?faces-redirect=true" icon="ui-icon-star" />
+				<p:menuitem value="Rotina Diária" action="/Rotina?faces-redirect=true" 
+				rendered="#{loginBean.responsavel}" icon="ui-icon-star"/>
 
 				<f:facet name="options">
 					<p:commandButton type="button" value="Ajuda"

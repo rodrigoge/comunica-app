@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -35,8 +33,13 @@ public class Usuario implements Serializable {
 	@Column(name = "senha", length = 60, nullable = false)
 	private String senha;
 	
+	@Column(name = "tipoConta", length = 60, nullable = false)
+	private String tipoConta;
+	
+	/*
 	@Enumerated(EnumType.STRING)
 	private TipoConta tipoConta;
+	*/
 
 	public Long getId() {
 		return id;
@@ -86,11 +89,22 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 	}
 
+	/*
 	public TipoConta getTipoConta() {
 		return tipoConta;
 	}
 
 	public void setTipoConta(TipoConta tipoConta) {
+		this.tipoConta = tipoConta;
+	}
+	
+	*/
+
+	public String getTipoConta() {
+		return tipoConta;
+	}
+
+	public void setTipoConta(String tipoConta) {
 		this.tipoConta = tipoConta;
 	}
 
