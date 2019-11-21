@@ -56,10 +56,8 @@ public class LoginBean implements Serializable {
 	}
 
 	public String sair() {
-		FacesContext fc = FacesContext.getCurrentInstance();
-		HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
-		session.invalidate();
-		return "Login.xhtml";
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return"/Login?faces-redirect=true";
 	}
 
 	public boolean isResponsavel() {

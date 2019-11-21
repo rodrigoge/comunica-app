@@ -154,15 +154,15 @@ fieldset
 #text1, #text2
 {
 	font-size: 28px; 
-	color: #fffdd9;
+	color: #fff;
 	text-align: center !important;
 	-webkit-text-stroke-width: 0.5px;
 	-webkit-text-stroke-color: #000;
 	margin-top: 2% !important;
 	width: 650px;
 	margin-left: 27%;
-	background-color: #007acc;
-	border: 1px solid #000;
+	background-color: #1a75ff;
+	border-bottom: 1px solid #000;
 }
 
 
